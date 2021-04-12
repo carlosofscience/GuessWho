@@ -30,7 +30,16 @@ public class PlayPage extends Page{
 		gbc_lblNewLabel.gridy = 1;
 		add(lblNewLabel, gbc_lblNewLabel);
 		
-	
+		JButton PlayPageBtn = new JButton("Back");
+        PlayPageBtn.setName("MainMenuPage");
+        GridBagConstraints gbc_mainMenuBtn = new GridBagConstraints();
+        gbc_mainMenuBtn.anchor = GridBagConstraints.NORTH;
+        gbc_mainMenuBtn.gridx = 1;
+        gbc_mainMenuBtn.gridy = 6;
+        add(PlayPageBtn, gbc_mainMenuBtn);
+
+        //add buttons with the name of the window is targeting to
+        linkComponents.add(PlayPageBtn);
 		
 	}
 }
