@@ -61,8 +61,9 @@ public class guesswho {
 		MainMenuPage mainMenu = new MainMenuPage();
 		ScoreboardPage scoreboard = new ScoreboardPage();		
 
-		container.addPage(scoreboard);
 		container.addPage(mainMenu);
+		container.addPage(scoreboard);
+	
 	
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
