@@ -24,10 +24,12 @@ public class PageContainer extends JPanel {
 		setLayout(layout);
 	}
 	
-	void focus(String pageName){ 
+	void show(String pageName){ 
 		if(pages.contains(pageName)) {
 			System.out.println("focusing page: "+pageName );
 			layout.show(this, pageName);			
+		}else {
+			System.out.println("can't display page: "+pageName+", is not a page.");
 		}
 
 	}
@@ -37,25 +39,20 @@ public class PageContainer extends JPanel {
 		pages.add(page.getName());
 		System.out.println("Adding page: "+page.getName() );
 
-		for(JButton link: page.getLinks()) 
+		for(PageLink link: page.getLinks()) 
 		{
 			//verify this is a button for a page
-			if (link.getName().contains("Page")) {
-				links.add(link.getName());
-				link.addActionListener(new ActionListener(){
-			        public void actionPerformed(ActionEvent e){
-			        	focus(link.getName());  	
-			        }
-			    });
-
-				System.out.println("Adding link to : "+link.getName() );
-
-			}
+			links.add(link.getLink());
+			link.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					show(link.getLink());  		}
+				});
+				System.out.println("Adding link to : "+link.getLink() );
 		}
 		add(page, page.getName());
 		
 		//display whatever last page was added
-		focus(page.getName());
+		show(page.getName());
 	}
 
 }

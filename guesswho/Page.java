@@ -6,14 +6,27 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Page extends JPanel{
-	protected ArrayList<JButton> linkComponents;
+	protected ArrayList<PageLink> links;//keeps tracks of links within the box
 	
 	Page(){
 		super();
-		linkComponents = new ArrayList<JButton>();
+		links = new ArrayList<PageLink>();
 	}
 	
-	ArrayList<JButton> getLinks(){
-		return linkComponents;
+	public void addLink(PageLink link) {
+		add(link, null);
+	}
+	
+	public void addLink(PageLink link, Object component) {
+		links.add(link);
+		if(component != null) {
+			add(link, component);
+		}else {
+			add(link);
+		}
+	}
+	
+	ArrayList<PageLink> getLinks(){
+		return links;
 	}
 }
