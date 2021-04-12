@@ -16,16 +16,17 @@ public class ScoreboardPage extends Page
 		super();
 		setName("ScoreboardPage");
 		GridBagLayout gbl_ScoreboardPanel = new GridBagLayout();
-		gbl_ScoreboardPanel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_ScoreboardPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_ScoreboardPanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_ScoreboardPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_ScoreboardPanel.columnWidths = new int[]{180, 105, 0};
+		gbl_ScoreboardPanel.rowHeights = new int[]{30, 14, 35, 23, 23, 23, 23, 0};
+		gbl_ScoreboardPanel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_ScoreboardPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gbl_ScoreboardPanel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Score Board");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1.gridx = 3;
+		gbc_lblNewLabel_1.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_1.gridx = 1;
 		gbc_lblNewLabel_1.gridy = 1;
 		add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
@@ -65,19 +66,13 @@ public class ScoreboardPage extends Page
 		gbc_lblNewLabel_6.gridy = 7;
 		add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		JButton MainMenuPageBtn = new JButton("Back");
-		MainMenuPageBtn.setName("MainMenuPage");
-		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_4.gridx = 3;
-		gbc_lblNewLabel_4.gridy = 8;
-		
-		
+		PageLink MainMenuPageLink = new PageLink("Back");
+		MainMenuPageLink.setLink("MainMenuPage");
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
+		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_4.gridx = 6;
 		gbc_btnNewButton_4.gridy = 11;
-		add(MainMenuPageBtn, gbc_btnNewButton_4);
-		
-		linkComponents.add(MainMenuPageBtn);
-		
+		addLink(MainMenuPageLink, gbc_btnNewButton_4);
+				
 	}
 }
