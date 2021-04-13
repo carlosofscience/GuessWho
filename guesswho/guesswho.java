@@ -54,7 +54,6 @@ public class guesswho {
 		frame.setVisible(true);
 		frame.setBounds(100, 100, 450, 300);
 
-		
 		container = new PageContainer();
 		
 		//add pages here
@@ -62,10 +61,9 @@ public class guesswho {
 		ScoreboardPage scoreboard = new ScoreboardPage();
 		PlayPage playPage = new PlayPage();	
 
-		container.addPage(mainMenu);
 		container.addPage(scoreboard);
 		container.addPage(playPage);
-	
+		container.addPage(mainMenu);
 	
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
