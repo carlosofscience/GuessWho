@@ -46,8 +46,9 @@ public class PageContainer extends JPanel {
 			link.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					show(link.getLink());  		}
-				});
-				System.out.println("Adding link to : "+link.getLink() );
+			});
+			
+			System.out.println("Adding link to : "+link.getLink() );
 		}
 		add(page, page.getName());
 		

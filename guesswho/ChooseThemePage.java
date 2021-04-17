@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -12,8 +13,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ChooseThemePage extends Page{
-	
+		
 	ChooseThemePage(){
+		
+		/*
+		 TODO:
+			1- create a directory for themes (each theme is a directory)
+			2- read directory names display the window as buttons
+		*/
+		//page set up layout and name
 		setName("ChooseThemePage");
 		GridBagLayout gbl_PlayPage = new GridBagLayout();
 		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};
@@ -29,6 +37,26 @@ public class ChooseThemePage extends Page{
 		gbc_lblNewLabel.gridx = 1;
 		gbc_lblNewLabel.gridy = 1;
 		add(lblNewLabel, gbc_lblNewLabel);
+		
+		//theme options
+		
+		File f = new File("./src/themes");
+		int index = 3;
+		for (String pathname : f.list()) {
+			
+			JButton themeBtn = new PageLink(pathname);
+			themeBtn.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					System.out.println("Theme clicked: "+pathname);	
+				}
+			});
+			
+			GridBagConstraints gbc_themeBtn = new GridBagConstraints();
+			gbc_themeBtn.anchor = GridBagConstraints.NORTH;
+			gbc_themeBtn.gridx = 1;
+			gbc_themeBtn.gridy =  index++;
+	        add(themeBtn, gbc_themeBtn);
+        }
 		
 		PageLink PlayPageLink = new PageLink("Back");
 		PlayPageLink.setLink("MainMenuPage");
