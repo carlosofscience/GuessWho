@@ -18,7 +18,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JTable;
 import java.awt.CardLayout;
 
-public class guesswho {
+public class GuessWho {
 
 	private JFrame frame;
 	private PageContainer container;
@@ -30,7 +30,7 @@ public class guesswho {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					guesswho window = new guesswho();
+					GuessWho window = new GuessWho();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class guesswho {
 	/**
 	 * Create the application.
 	 */
-	public guesswho() {
+	public GuessWho() {
 		initialize();
 	}
 
@@ -60,11 +60,12 @@ public class guesswho {
 		MainMenuPage mainMenu = new MainMenuPage();
 		ScoreboardPage scoreboard = new ScoreboardPage();
 		PlayPage playPage = new PlayPage();	
+		ChooseThemePage ChooseThemePage = new ChooseThemePage();	
 
 		container.addPage(scoreboard);
 		container.addPage(playPage);
+		container.addPage(ChooseThemePage);
 		container.addPage(mainMenu);
-	
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
