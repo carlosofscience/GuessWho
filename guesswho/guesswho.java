@@ -22,6 +22,7 @@ public class GuessWho {
 
 	private JFrame frame;
 	private PageContainer container;
+	private GameController controller;
 
 	/**
 	 * Launch the application.
@@ -50,6 +51,9 @@ public class GuessWho {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		controller = new GameController();
+		
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setBounds(100, 100, 1000, 600);
@@ -57,10 +61,10 @@ public class GuessWho {
 		container = new PageContainer();
 		
 		//add pages here
-		MainMenuPage mainMenu = new MainMenuPage();
-		ScoreboardPage scoreboard = new ScoreboardPage();
-		PlayPage playPage = new PlayPage();	
-		ChooseThemePage ChooseThemePage = new ChooseThemePage();	
+		MainMenuPage mainMenu = new MainMenuPage(controller);
+		ScoreboardPage scoreboard = new ScoreboardPage(controller);
+		PlayPage playPage = new PlayPage(controller);	
+		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
 
 		container.addPage(scoreboard);
 		container.addPage(playPage);

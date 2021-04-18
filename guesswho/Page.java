@@ -7,9 +7,11 @@ import javax.swing.JPanel;
 
 public class Page extends JPanel{
 	protected ArrayList<PageLink> links;//keeps tracks of links within the box
+	protected GameController controller;
 	
-	Page(){
+	Page(GameController controller ){
 		super();
+		this.controller = controller;
 		links = new ArrayList<PageLink>();
 	}
 	
@@ -24,6 +26,9 @@ public class Page extends JPanel{
 		}else {
 			add(link);
 		}
+	}
+	public void setGameController(GameController controller) {
+		this.controller = controller;
 	}
 	
 	ArrayList<PageLink> getLinks(){

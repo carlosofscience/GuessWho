@@ -24,18 +24,15 @@ import javax.swing.border.LineBorder;
 
 public class ChooseThemePage extends Page{
 		
-	private String currentTheme;
-	
-	ChooseThemePage(){
+	ChooseThemePage(GameController controller){
 		
 		/*
 		 TODO:
 			1- create a directory for themes (each theme is a directory)
 			2- read directory names display the window as buttons
 		*/
-		
+		super(controller);
 		setName("ChooseThemePage");
-		currentTheme = "Classic GuessWho";
 		GridBagLayout gbl_PlayPage = new GridBagLayout();
 		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};
 		gbl_PlayPage.rowHeights = new int[]{30, 30,40,40,40,40,40,0, 0};
@@ -68,7 +65,7 @@ public class ChooseThemePage extends Page{
 			
 			themeBtn.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
-					setGameTheme(themeDirName);	
+					controller.setGameTheme(themeDirName);
 				}
 			});
 			
@@ -89,11 +86,6 @@ public class ChooseThemePage extends Page{
         gbc_MainMenuPageLink.gridx = 1;
         gbc_MainMenuPageLink.gridy = ++index;
         addLink(MainMenuPageLink, gbc_MainMenuPageLink);
-	}
-	
-	private void setGameTheme(String themeDirName) {
-		System.out.println("Theme clicked: "+themeDirName);
-		this.currentTheme = themeDirName;
 	}
 	
 	private Icon getIconByThemeName(String themeDirName) {

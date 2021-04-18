@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 
 public class MainMenuPage extends Page{
 	
-	MainMenuPage(){
+	MainMenuPage(GameController controller){
+		super(controller);
 		setName("MainMenuPage");
 		GridBagLayout gbl_MainMenuPanel = new GridBagLayout();
 		gbl_MainMenuPanel.columnWidths = new int[]{180, 105, 0};
