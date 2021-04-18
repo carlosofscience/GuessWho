@@ -1,0 +1,20 @@
+<character name>
+<image name on /imgs directory>
+<features example: {"has brown eyes", "is young", "has black hair", etc..}>
+
+<character name>
+<image name on /imgs directory>
+<features example: {"has brown eyes", "is young", "has black hair", etc..}>
+
+<character name>
+<image name on /imgs directory>
+<features example: {"has brown eyes", "is young", "has black hair", etc..}>
+
+<character name>
+<image name on /imgs directory>
+<features example: {"has brown eyes", "is young", "has black hair", etc..}>
+
+<character name>
+<image name on /imgs directory>
+<features example: {"has brown eyes", "is young", "has black hair", etc..}>
+
