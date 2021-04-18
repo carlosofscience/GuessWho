@@ -34,4 +34,7 @@ or (for simple https auth)
 > git clone https://github.com/CarloCapuz/OOPGuessWhoProject.git . 
 
 
-Now the project should be all set :)
+Note: Everytime the code is updated either with by cloning or pulling, Go to the Project explorer > GuessWhoo > refresh (F5).
+
+![image](https://user-images.githubusercontent.com/60438058/114477946-3385b880-9bcb-11eb-8148-3c1268b876c4.png)
+
