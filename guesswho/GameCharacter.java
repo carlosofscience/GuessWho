@@ -1,23 +1,29 @@
 package guesswho;
 
-import java.util.ArrayList;
-
 public class GameCharacter {
-	
-	private ArrayList<String> features;
+
+	private String name;
 	private Icon image;
+	private String features;
 	
-	public GameCharacter(ArrayList<String> features, Icon image) {
+	public GameCharacter(String name, Icon image, String features) {
 		super();
 		this.features = features;
 		this.image = image;
 	}
+	public String getName() {
+		return name;
+	}
 
-	public ArrayList<String> getFeatures() {
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(ArrayList<String> features) {
+	public void setFeatures(String features) {
 		this.features = features;
 	}
 
@@ -27,5 +33,8 @@ public class GameCharacter {
 
 	public void setImage(Icon image) {
 		this.image = image;
+	}
+	public String toString() {
+		return "{ name: "+name+", features: "+features+" }";
 	}
 }

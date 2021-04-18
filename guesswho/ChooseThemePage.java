@@ -89,6 +89,6 @@ public class ChooseThemePage extends Page{
 	}
 	
 	private Icon getIconByThemeName(String themeDirName) {
-		return new Icon("./src/themes/"+themeDirName+"/imgs/icon.PNG", 40, 40);
+		return new Icon("./src/themes/"+themeDirName+"/imgs/THEME_ICON.PNG", 40, 40);
 	}
 }
