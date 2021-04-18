@@ -22,16 +22,22 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+
+
 public class ChooseThemePage extends Page{
-		
+	
+	GameController controller;
+	JLabel ChooseThemeLabel;
+	
 	ChooseThemePage(GameController controller){
-		
+
 		/*
 		 TODO:
 			1- create a directory for themes (each theme is a directory)
 			2- read directory names display the window as buttons
 		*/
 		super(controller);
+		this.controller = controller;
 		setName("ChooseThemePage");
 		GridBagLayout gbl_PlayPage = new GridBagLayout();
 		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};
@@ -40,13 +46,13 @@ public class ChooseThemePage extends Page{
 		gbl_PlayPage.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gbl_PlayPage);
 		
-		JLabel lblNewLabel = new JLabel("Choose Theme");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
-		add(lblNewLabel, gbc_lblNewLabel);
+		ChooseThemeLabel = new JLabel("Choose Theme: using \""+controller.currentGameTheme.themeName+"\"");
+		GridBagConstraints gbc_ChooseThemeLabel = new GridBagConstraints();
+		gbc_ChooseThemeLabel.anchor = GridBagConstraints.NORTH;
+		gbc_ChooseThemeLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_ChooseThemeLabel.gridx = 1;
+		gbc_ChooseThemeLabel.gridy = 1;
+		add(ChooseThemeLabel, gbc_ChooseThemeLabel);
 		
 
 		//theme options
@@ -86,6 +92,13 @@ public class ChooseThemePage extends Page{
         gbc_MainMenuPageLink.gridx = 1;
         gbc_MainMenuPageLink.gridy = ++index;
         addLink(MainMenuPageLink, gbc_MainMenuPageLink);
+	}
+	
+	public void update() {
+		if(ChooseThemeLabel != null)
+		{
+			ChooseThemeLabel.setText("Choose Theme: using \""+controller.currentGameTheme.themeName+"\"");
+		}
 	}
 	
 	private Icon getIconByThemeName(String themeDirName) {

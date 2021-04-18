@@ -53,7 +53,6 @@ public class GuessWho {
 	private void initialize() {
 		
 		controller = new GameController();
-		
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setBounds(100, 100, 1000, 600);

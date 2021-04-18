@@ -13,8 +13,12 @@ import javax.swing.JPanel;
 
 public class MainMenuPage extends Page{
 	
+	GameController controller;
+	JLabel themeLabel;
+	
 	MainMenuPage(GameController controller){
 		super(controller);
+		this.controller = controller;
 		setName("MainMenuPage");
 		GridBagLayout gbl_MainMenuPanel = new GridBagLayout();
 		gbl_MainMenuPanel.columnWidths = new int[]{180, 105, 0};
@@ -67,6 +71,22 @@ public class MainMenuPage extends Page{
 		gbc_showScoreBoardBtn.gridx = 1;
 		gbc_showScoreBoardBtn.gridy = 6;
 		addLink(ScoreBoardPageLink, gbc_showScoreBoardBtn);
-		
+
+		themeLabel = new JLabel("Current Theme: "+controller.currentGameTheme.themeName);
+		GridBagConstraints gbc_themeLabel = new GridBagConstraints();
+		gbc_themeLabel.anchor = GridBagConstraints.NORTH;
+		gbc_themeLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_themeLabel.gridx = 1;
+		gbc_themeLabel.gridy = 7;
+		add(themeLabel, gbc_themeLabel);
 	}
+	
+	@Override
+	public void update() {
+
+		if(themeLabel != null) {
+			themeLabel.setText("Current Theme: "+controller.currentGameTheme.themeName);			
+		}
+	}
+	
 }

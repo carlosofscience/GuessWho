@@ -9,9 +9,10 @@ public class Page extends JPanel{
 	protected ArrayList<PageLink> links;//keeps tracks of links within the box
 	protected GameController controller;
 	
-	Page(GameController controller ){
+	Page(GameController _controller ){
 		super();
-		this.controller = controller;
+		controller = _controller;
+		controller.addSubscriber(this);
 		links = new ArrayList<PageLink>();
 	}
 	
@@ -33,5 +34,10 @@ public class Page extends JPanel{
 	
 	ArrayList<PageLink> getLinks(){
 		return links;
+	}
+	
+	//to be updated by publisher controller
+	public void update() {
+		
 	}
 }
