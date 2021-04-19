@@ -59,13 +59,15 @@ public class guesswho {
 		//add pages here
 		MainMenuPage mainMenu = new MainMenuPage();
 		ScoreboardPage scoreboard = new ScoreboardPage();
-		PlayPage playPage = new PlayPage();	
+		PlayPage playPage = new PlayPage();
+		HowToPlayPage howToPlay = new HowToPlayPage();
 
 		container.addPage(scoreboard);
 		container.addPage(playPage);
+		container.addPage(howToPlay);
 		container.addPage(mainMenu);
 	
-		
+	
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
