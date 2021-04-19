@@ -64,12 +64,15 @@ public class GuessWho {
 		ScoreboardPage scoreboard = new ScoreboardPage(controller);
 		PlayPage playPage = new PlayPage(controller);	
 		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
-
+		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
+		
 		container.addPage(scoreboard);
 		container.addPage(playPage);
 		container.addPage(ChooseThemePage);
-    container.addPage(mainMenu);
-
+		container.addPage(howToPlayPage);
+		container.addPage(mainMenu);
+		
+		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

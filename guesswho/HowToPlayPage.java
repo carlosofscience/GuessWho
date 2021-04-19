@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 
 public class HowToPlayPage extends Page
 {
-	HowToPlayPage(){
-		super();
+	HowToPlayPage(GameController controller){
+		super(controller);
 		setName("HowToPlayPage");
 		GridBagLayout gbl_ScoreboardPanel = new GridBagLayout();
 
