@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 
 public class PlayPage extends Page{
 	
-	PlayPage(){
+	PlayPage(GameController controller){
+		super(controller);
 		setName("PlayPage");
 		GridBagLayout gbl_PlayPage = new GridBagLayout();
 		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};

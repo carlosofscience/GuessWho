@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 public class PageContainer extends JPanel {
 	
+	private GameController gameController;
 	private CardLayout layout;
 	private ArrayList<String> pages;
 	private ArrayList<String> links;
@@ -37,6 +38,7 @@ public class PageContainer extends JPanel {
 	public void addPage(Page page) {
 		
 		pages.add(page.getName());
+		page.setGameController(gameController);
 		System.out.println("Adding page: "+page.getName() );
 
 		for(PageLink link: page.getLinks()) 
@@ -46,8 +48,9 @@ public class PageContainer extends JPanel {
 			link.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					show(link.getLink());  		}
-				});
-				System.out.println("Adding link to : "+link.getLink() );
+			});
+			
+			System.out.println("Adding link to : "+link.getLink() );
 		}
 		add(page, page.getName());
 		

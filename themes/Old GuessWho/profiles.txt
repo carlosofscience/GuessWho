@@ -1,0 +1,10 @@
+3
+caca
+BENOIT.PNG
+has green eyes | is smiling | has red hair | freckles | is a boy
+poop
+MARGOT.PNG
+has blue eyes | has glasses | is a girl | has a hair accessory | has freckles |
+foo
+THIBALD.PNG
+has brwon eyes | has glasses | is a  boy | has a hat | has freckles | has black hair

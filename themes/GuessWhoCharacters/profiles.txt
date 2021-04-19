@@ -1,0 +1,76 @@
+24
+Alex
+Alex.PNG
+has black hair | has short hair | has straight hair | has facial hair | has big lips | has brown eyes | has black brow | has thin brow | has long brow | has small nose | is male 
+Alfred
+Alfred.PNG
+has orange hair | has long hair | has straight hair | has facial hair | has small lips | has blue eyes | has orange brow | has thin brow | has medium brow | has big nose | is male 
+Anita
+Anita.PNG
+has blonde hair | has long hair | has straight hair | has no facial hair | has small lips | has blue eyes | has blonde brow | has thin brow | has medium brow | has small nose | is female | is blushing
+Anne
+Anne.PNG
+has black hair | has short hair | has curly hair | has no facial hair | has small lips | has black eyes | has black brow | has thin brow | has short brow | has big nose | is female
+Bernard
+Bernard.PNG
+has black hair | has short hair | has straight hair | has no facial hair | has small lips | has black eyes | has black brow | has thin brow | has long brow | has big nose | is male | has hat
+Bill
+Bill.PNG
+is bald | has orange hair | has short hair | has straight hair | has facial hair | has small lips | has black eyes | has orange brow | has thick brow | has long brow | has small nose | is male | is blushing
+Charles
+Charles.PNG
+has blonde hair | has medium hair | has straight hair | has facial hair | has big lips | has black eyes | has blonde brow | has thick brow | has long brow | has big nose | is male
+Claire
+Claire.PNG
+has orange hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thin brow | has medium brow | has small nose | is female | has hat | has glasses
+Claire
+Claire.PNG
+has orange hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thin brow | has medium brow | has small nose | is female | has hat
+David
+David.PNG
+has blonde hair | has medium hair | has straight hair | has facial hair | has big lips | has brown eyes | has blonde brow | has thick brow | has long brow | has small nose | is male
+Eric
+Eric.PNG
+has blonde hair | has short hair | has straight hair | has no facial hair | has big lips | has black eyes | has blonde brow | has thin brow | has medium brow | has small nose | is male | has hat
+Frans
+Frans.PNG
+has orange hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thick brow | has long brow | has small nose | is male
+George
+George.PNG
+has white hair | has short hair | has straight hair | has no facial hair | has big lips | has black eyes | has white brow | has thick brow | has long brow | has big nose | is male | has hat
+Herman
+Herman.PNG
+is bald | has orange hair | has short hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thick brow | has short brow | has big nose | is male
+Joe
+Joe.PNG
+has blonde hair | has short hair | has curly hair | has no facial hair | has small lips | has black eyes | has blonde brow | has thick brow | has medium brow | has big nose | is male | has glasses
+Maria
+Maria.PNG
+has black hair | has long hair | has straight hair | has no facial hair | has small lips | has black eyes | has black brow | has thin brow | has long brow | has small nose | is female
+Max
+Max.PNG
+has black hair | has short hair | has curly hair | has facial hair | has big lips | has black eyes | has black brow | has thick brow | has medium brow | has big nose | is male
+Paul
+Paul.PNG
+has white hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has white brow | has thick brow | has long brow | has small nose | is male | has glasses
+Peter
+Peter.PNG
+has white hair | has short hair | has curly hair | has no facial hair | has big lips | has blue eyes | has white brow | has thick brow | has long brow | has big nose | is male
+Philip
+Philip.PNG
+has black hair | has short hair | has curly hair | has facial hair | has big lips | has brown eyes | has black brow | has thin brow | has long brow | has small nose | is male | is blushing
+Richard
+Richard.PNG
+is bald | has black hair | has short hair | has straight hair | has facial hair | has small lips | has black eyes | has black brow | has thin brow | has medium brow | has small nose | is male
+Robert
+Robert.PNG
+has black hair | has medium hair | has straight hair | has no facial hair | has black lips | has blue eyes | has black brow | has thin brow | has long brow | has big nose | is male | is blushing
+Sam
+Sam.PNG
+is bald | has white hair | has short hair | has straight hair | has no facial hair | has small lips | has black eyes | has black brow | has thin brow | has short brow | has big nose | is male | has glasses
+Susan
+Susan.PNG
+has white hair | has long hair | has straight hair | has no facial hair | has big lips | has brown eyes | has white brow | has thin brow | has short brow | has small nose | is female | is blushing
+Tom
+Tom.PNG
+is bald | has black hair | has short hair | has straight hair | has no facial hair | has small lips | has blue eyes | has black brow | has thin brow | has short brow | has big nose | is male | has glasses
