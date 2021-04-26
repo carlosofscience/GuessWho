@@ -25,18 +25,22 @@ import java.lang.Math;
 
 public class PlayPage extends Page{
 	private GameController controller;
+	
+	JPanel characterGridContainer;
 	JPanel charactersContainer;
 
 	PlayPage(GameController controller){
 		super(controller);
 		this.controller = controller;
 		charactersContainer = new JPanel();
-		add(charactersContainer);
 		setName("PlayPage");
 
         JPanel headerContainer = new JPanel();
         headerContainer.setBackground(Color.blue);
-        headerContainer.setPreferredSize(new Dimension(900, 30));
+        headerContainer.setPreferredSize(new Dimension(900, 30));        
+        characterGridContainer = new JPanel();
+        characterGridContainer.setBackground(Color.blue);
+        characterGridContainer.setPreferredSize(new Dimension(900, 600));
         JPanel suggestionContainer = new JPanel();
         suggestionContainer.setBackground(Color.yellow);
         suggestionContainer.setPreferredSize(new Dimension(900, 30));
@@ -49,7 +53,7 @@ public class PlayPage extends Page{
 
         
         add(headerContainer);
-        displayThemeIcons();
+        add(characterGridContainer);
         //adding containers
         add(suggestionContainer);
         add(askFeatureContainer);
@@ -81,9 +85,10 @@ public class PlayPage extends Page{
 	        });
 		}
         
+		//adding components to layout containers
+		characterGridContainer.add(charactersContainer);
         askFeatureContainer.add(askInput);
         askFeatureContainer.add(askBtn);
-        
         guessContainer.add(guessInput);
         guessContainer.add(guessBtn);
 //        addLink(PlayPageLink);
@@ -108,8 +113,6 @@ public class PlayPage extends Page{
 			public void insertUpdate(DocumentEvent e) {
         		ArrayList<String> suggestions = controller.getSuggestion(askInput.getText());
         		
-        		
-        		
         		for(int i=0; i < suggestionBtns.length; i++ ){
         			suggestionBtns[i].setText("");
             		suggestionBtns[i].setVisible(false);	
@@ -132,10 +135,10 @@ public class PlayPage extends Page{
                 askInput.setText("");
             }
         });
-        
+     //load characters into screen
+        displayThemeIcons();
 	}
 	//return 2d array of the grid containing integers with the size. row, column
-
 	private int[] getArray(int size, int value) {
 		int[] arr = new int[size];
 		java.util.Arrays.fill(arr, value);
@@ -169,7 +172,7 @@ public class PlayPage extends Page{
 
 		
 		//remove container if is added
-		remove(charactersContainer);
+		characterGridContainer.remove(charactersContainer);
 		
 		//create new container, new layout
 		charactersContainer = new JPanel();
@@ -192,7 +195,7 @@ public class PlayPage extends Page{
 		}
 
 		//add container
-		add(charactersContainer);
+		characterGridContainer.add(charactersContainer);
 //		return new Icon[bigSide][smallSide];
 	} 
 	
