@@ -8,6 +8,7 @@ public class GameCharacter {
 	
 	public GameCharacter(String name, Icon image, String features) {
 		super();
+		this.name = name;
 		this.features = features;
 		this.image = image;
 	}
@@ -34,6 +35,11 @@ public class GameCharacter {
 	public void setImage(Icon image) {
 		this.image = image;
 	}
+	
+	public boolean hasFeature(String feature) {
+		return this.features.indexOf(feature) >= 0; 
+	}
+	
 	public String toString() {
 		return "{ name: "+name+", features: "+features+" }";
 	}

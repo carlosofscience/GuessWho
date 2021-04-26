@@ -4,7 +4,7 @@ Alex.PNG
 has black hair | has short hair | has straight hair | has facial hair | has big lips | has brown eyes | has black brow | has thin brow | has long brow | has small nose | is male 
 Alfred
 Alfred.PNG
-has orange hair | has long hair | has straight hair | has facial hair | has small lips | has blue eyes | has orange brow | has thin brow | has medium brow | has big nose | is male 
+| has orange hair | has long hair | has straight hair | has facial hair | has small lips | has blue eyes | has orange brow | has thin brow | has medium brow | has big nose | is male |
 Anita
 Anita.PNG
 has blonde hair | has long hair | has straight hair | has no facial hair | has small lips | has blue eyes | has blonde brow | has thin brow | has medium brow | has small nose | is female | is blushing

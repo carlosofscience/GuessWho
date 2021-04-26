@@ -2,16 +2,31 @@ package guesswho;
 
 public class GameSession {
 	
-	private int totalGuesses;
+	private int correctGuesses;
 	private int incorrectGuesses;
 	private GameCharacter misteryCharacter;
 	
-	public int getTotalGuesses() {
-		return totalGuesses;
+	GameSession(GameCharacter misteryCharacter){
+		//choose a random character
+		this.misteryCharacter = misteryCharacter;
+		correctGuesses=0;
+		incorrectGuesses=0;
+		}
+	public boolean isCharacterFeature(String feature) {
+		boolean hasFeature = misteryCharacter.hasFeature(feature);
+		if(misteryCharacter.hasFeature(feature)) {
+			correctGuesses++;
+		}else {
+			incorrectGuesses++;
+		}
+		return hasFeature;
+	}
+	public int getCorrectGuesses() {
+		return correctGuesses;
 	}
 
-	public void setTotalGuesses(int totalGuesses) {
-		this.totalGuesses = totalGuesses;
+	public void setCorrectGuesses(int correctGuesses) {
+		this.correctGuesses = correctGuesses;
 	}
 
 	public int getIncorrectGuesses() {
@@ -28,12 +43,5 @@ public class GameSession {
 
 	public void setMisteryCharacter(GameCharacter misteryCharacter) {
 		this.misteryCharacter = misteryCharacter;
-	}
-
-	GameSession(GameCharacter misteryCharacter){
-		//choose a random character
-		this.misteryCharacter = misteryCharacter;
-	}
-	
-	
+	}	
 }
