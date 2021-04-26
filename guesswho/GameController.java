@@ -35,13 +35,16 @@ public class GameController {
 		subcriberPages.add(page);
 	}
 
-	public String getSuggestion(String text) {
+	public ArrayList<String> getSuggestion(String text) {
 //		ArrayList<String> charactersFeatures = currentGameTheme.charactersFeatures;
 //		System.out.print("charactersFeatures size =>: "+currentGameTheme.charactersFeatures.size());
+		ArrayList<String> suggestions = new ArrayList<String>();
 		for(String feature: currentGameTheme.charactersFeatures) {
-			if(feature.indexOf(text) >= 0) return feature;
+			if(feature.indexOf(text) >= 0 && suggestions.size() < 4 && !suggestions.contains(feature)) {
+				suggestions.add(feature);
+			}
 		}	
-		return "";
+		return suggestions;
 	}
 	
 }

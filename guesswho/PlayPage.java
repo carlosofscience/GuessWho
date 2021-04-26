@@ -57,20 +57,29 @@ public class PlayPage extends Page{
 //		PageLink PlayPageLink = new PageLink("Back");
 //		PlayPageLink.setLink("MainMenuPage");
 
-		JButton askBtn = new JButton("Ask Feature");
-		JButton guessBtn = new JButton("Final Guess");
-		JButton suggestionBtn = new JButton("");
-	
-		
-		suggestionBtn.setVisible(false);
 		
         JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
-        
         guessInput.setBounds(20,0, 600,60); 
         JTextField askInput = new JTextField("Enter feature to guess...", 40);  
         guessInput.setBounds(20,60, 600,60); 
         
-        suggestionContainer.add(suggestionBtn);
+        
+		JButton askBtn = new JButton("Ask Feature");
+		JButton guessBtn = new JButton("Final Guess");
+		JButton[] suggestionBtns = new JButton[4];
+		
+		for(int i=0; i < suggestionBtns.length; i++ ) {
+			final int index = i;
+			suggestionBtns[i] = new JButton("");
+			suggestionBtns[i].setVisible(false);
+	        suggestionContainer.add(suggestionBtns[i]);
+	        suggestionBtns[i].addActionListener(new ActionListener() {
+	        	@Override
+	        	public void actionPerformed(ActionEvent event) {    	
+	        		askInput.setText(suggestionBtns[index].getText());
+	        	}
+	        });
+		}
         
         askFeatureContainer.add(askInput);
         askFeatureContainer.add(askBtn);
@@ -97,9 +106,19 @@ public class PlayPage extends Page{
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-        		String suggestion = controller.getSuggestion(askInput.getText());
-        		suggestionBtn.setText(suggestion);
-        		suggestionBtn.setVisible(suggestion.length() > 0);
+        		ArrayList<String> suggestions = controller.getSuggestion(askInput.getText());
+        		
+        		
+        		
+        		for(int i=0; i < suggestionBtns.length; i++ ){
+        			suggestionBtns[i].setText("");
+            		suggestionBtns[i].setVisible(false);	
+
+        			if(i < suggestions.size()) {
+        				suggestionBtns[i].setText(suggestions.get(i));
+                		suggestionBtns[i].setVisible(suggestions.get(i).length() > 0);	
+        			}
+        		}
 			}
 
 			@Override
@@ -111,12 +130,6 @@ public class PlayPage extends Page{
             public void actionPerformed(ActionEvent event) {
                 System.out.println("The entered text is: " + askInput.getText());
                 askInput.setText("");
-            }
-        });
-        suggestionBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                askInput.setText(suggestionBtn.getText());
             }
         });
         
