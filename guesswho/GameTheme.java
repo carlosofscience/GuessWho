@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class GameTheme {
 
 	private ArrayList<GameCharacter> characters;
+	public ArrayList<String> charactersFeatures;
 	private Icon themeIcon;
 	public String themeName;
 	public boolean isAvaliable;
@@ -18,9 +19,10 @@ public class GameTheme {
 		loadTheme(_themeName);
 	}
 	
+	//load characters with all images and features
 	public void loadTheme(String _themeName) {
 		themeName = _themeName;
-
+		charactersFeatures = new ArrayList<String>();
 		System.out.println("loading theme: "+ _themeName);
 		//get theme icon
 		themeIcon = new Icon("./src/themes/"+themeName+"/imgs/THEME_ICON.PNG", 40, 40);
@@ -32,6 +34,7 @@ public class GameTheme {
 		      String features = "", name = "", data;
 		      Icon image = null;//TODO: point to default
 		      characters.clear();
+		      charactersFeatures.clear();
 		      while (profilesData.hasNextLine()) {
 		    	  
 			    data = profilesData.nextLine();
@@ -49,6 +52,21 @@ public class GameTheme {
 		    			case 0:
 		    				{
 		    					features = data;
+		    					String feature = "";
+		    					String[] buffer = features.split(" | ", -1);
+		    					for(int i=0; i < buffer.length; i++) {
+		    						System.out.println("\""+buffer[i]+"\"");
+		    						if(buffer[i].equals("|")){
+//		    							System.out.println("feature: "+feature);
+		    							if(!charactersFeatures.contains(feature)){
+		    								charactersFeatures.add(feature);
+		    							}
+		    							feature = "";
+		    						}
+		    						else
+		    							feature+= " "+buffer[i];
+		    					}
+		    					System.out.println("characters: "+charactersFeatures);
 			    				characters.add(new GameCharacter(name, image, features));
 			    				System.out.println("adding characters: "+characters.size());
 		    				}
@@ -75,6 +93,9 @@ public class GameTheme {
 		return "./src/themes/"+themeName+"/imgs/icon.PNG";
 	}
 	
+	public ArrayList<GameCharacter> getCharacters() {
+		return characters;
+	}
 	
 	
 }

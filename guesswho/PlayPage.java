@@ -1,5 +1,8 @@
 package guesswho;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -7,58 +10,134 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import java.lang.Math;
 
 public class PlayPage extends Page{
-	
-	private GameController gameController;
-	
+	private GameController controller;
+	JPanel charactersContainer;
+
 	PlayPage(GameController controller){
 		super(controller);
-		this.gameController = controller;
-		getGridLayout(24);
+		this.controller = controller;
+		charactersContainer = new JPanel();
+		add(charactersContainer);
 		setName("PlayPage");
-		GridBagLayout gbl_PlayPage = new GridBagLayout();
-		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};
-		gbl_PlayPage.rowHeights = new int[]{30, 14, 35, 23, 23, 23, 23, 0};
-		gbl_PlayPage.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_PlayPage.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gbl_PlayPage);
-		
-		JLabel lblNewLabel = new JLabel("Play window");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
-		add(lblNewLabel, gbc_lblNewLabel);
-		
-		PageLink PlayPageLink = new PageLink("Back");
-		PlayPageLink.setLink("MainMenuPage");
-        GridBagConstraints gbc_mainMenuBtn = new GridBagConstraints();
-        gbc_mainMenuBtn.anchor = GridBagConstraints.NORTH;
-        gbc_mainMenuBtn.gridx = 1;
-        gbc_mainMenuBtn.gridy = 6;
-        addLink(PlayPageLink, gbc_mainMenuBtn);
+
+        JPanel headerContainer = new JPanel();
+        headerContainer.setBackground(Color.blue);
+        headerContainer.setPreferredSize(new Dimension(900, 30));
+        JPanel suggestionContainer = new JPanel();
+        suggestionContainer.setBackground(Color.yellow);
+        suggestionContainer.setPreferredSize(new Dimension(900, 30));
+        JPanel askFeatureContainer = new JPanel();
+        askFeatureContainer.setBackground(Color.white);
+        askFeatureContainer.setPreferredSize(new Dimension(900, 30));
+        JPanel guessContainer = new JPanel();
+        guessContainer.setBackground(Color.red);
+        guessContainer.setPreferredSize(new Dimension(900, 30));
+
         
-        //Display grid of characters
-        //get number of columns and rows of characters according to number of character
-        //such if is 24, find the 2 numbers which multiply by themselves gives 24
-        /*
-         *  1) Take the square root of the number X; we'll call it N.
-			2) Set N equal to the ceiling of N (round up to the nearest integer).
-			3) Test for (X % N). If N divides evenly into X, we found our first number.
-			  if 0, divide X by N to get M. M and N are our numbers
-			  if not 0, increment N by 1 and start step 3 over.
-        */
+        add(headerContainer);
+        displayThemeIcons();
+        //adding containers
+        add(suggestionContainer);
+        add(askFeatureContainer);
+        add(guessContainer);
+//		PageLink PlayPageLink = new PageLink("Back");
+//		PlayPageLink.setLink("MainMenuPage");
+
+		JButton askBtn = new JButton("Ask Feature");
+		JButton guessBtn = new JButton("Final Guess");
+		JButton suggestionBtn = new JButton("");
+	
+		
+		suggestionBtn.setVisible(false);
+		
+        JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
+        
+        guessInput.setBounds(20,0, 600,60); 
+        JTextField askInput = new JTextField("Enter feature to guess...", 40);  
+        guessInput.setBounds(20,60, 600,60); 
+        
+        suggestionContainer.add(suggestionBtn);
+        
+        askFeatureContainer.add(askInput);
+        askFeatureContainer.add(askBtn);
+        
+        guessContainer.add(guessInput);
+        guessContainer.add(guessBtn);
+//        addLink(PlayPageLink);
+               
+        
+        //game logic
+        controller.startGameSession();
+        
+        askInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.out.println("The entered text is: " + askInput.getText());
+//                controller.guess()
+                askInput.setText("");
+            }
+        });
+        askInput.getDocument().addDocumentListener(new DocumentListener() {
+        	public void changedUpdate(DocumentEvent e) {
+        	}
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+        		String suggestion = controller.getSuggestion(askInput.getText());
+        		suggestionBtn.setText(suggestion);
+        		suggestionBtn.setVisible(suggestion.length() > 0);
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+			}
+        });
+        askBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.out.println("The entered text is: " + askInput.getText());
+                askInput.setText("");
+            }
+        });
+        suggestionBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                askInput.setText(suggestionBtn.getText());
+            }
+        });
+        
 	}
 	//return 2d array of the grid containing integers with the size. row, column
+
+	private int[] getArray(int size, int value) {
+		int[] arr = new int[size];
+		java.util.Arrays.fill(arr, value);
+		return arr;
+	}
+	private double[] getArray(int size, double value) {
+		double[] arr = new double[size];
+		java.util.Arrays.fill(arr, value);
+		return arr;
+	}
 	
-	private int[][] getGridLayout(int numOfCharacters){
-		
+	//called from uptate()
+	private void displayThemeIcons(){
+		//this code calculates best rectangle grid
+		int numOfCharacters = controller.currentGameTheme.getCharacters().size();
 		int squareRoot = (int) Math.ceil(Math.sqrt(numOfCharacters));
 		int m = 0;
 		
@@ -73,11 +152,38 @@ public class PlayPage extends Page{
 		smallSide = (bigSide < smallSide)? bigSide: smallSide;//check for smallest
 		bigSide = temp;//set biggest to biggest
 		
+		int imageWidth = Math.round(WIDTH/bigSide)-50, imageHeight= Math.round(HEIGHT/smallSide);
 
-		return new int[bigSide][smallSide];
+		
+		//remove container if is added
+		remove(charactersContainer);
+		
+		//create new container, new layout
+		charactersContainer = new JPanel();
+		charactersContainer.setBackground(Color.red);
+		charactersContainer.setPreferredSize(new Dimension(900, 600));
+		//add images
+		//creates new grid and adds it to the charactersContainer
+		for(int y=0; y < smallSide; y++) {
+			for(int x=0; x < bigSide; x++) {
+				int index = y * bigSide + x;
+				JLabel imageContainer = new JLabel();
+//				imageContainer.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+				Icon image = controller.currentGameTheme.getCharacters().get(y * bigSide + x).getImage();
+				//set size in this current line (if needed)
+				image.resize(imageWidth, (int)(imageWidth * 1.8));
+				imageContainer.setIcon(image);
+				imageContainer.setBounds(x*imageWidth, y*imageHeight, imageWidth, imageHeight);
+				charactersContainer.add(imageContainer);
+			}
+		}
+
+		//add container
+		add(charactersContainer);
+//		return new Icon[bigSide][smallSide];
 	} 
 	
 	public void update() {
-		
+		displayThemeIcons();
 	}
 }

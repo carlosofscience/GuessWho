@@ -2,11 +2,13 @@ package guesswho;
 import java.util.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -26,6 +28,10 @@ public class PageContainer extends JPanel {
 	}
 	
 	void show(String pageName){ 
+//		System.out.println("size: "+this.getParent().getSize());
+		
+//		setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+
 		if(pages.contains(pageName)) {
 			System.out.println("focusing page: "+pageName );
 			layout.show(this, pageName);			
@@ -52,6 +58,7 @@ public class PageContainer extends JPanel {
 			
 			System.out.println("Adding link to : "+link.getLink() );
 		}
+		page.setPreferredSize(getPreferredSize());
 		add(page, page.getName());
 		
 		//display whatever last page was added

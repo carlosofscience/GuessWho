@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
@@ -17,9 +19,12 @@ import javax.swing.JTextArea;
 import javax.swing.JLayeredPane;
 import javax.swing.JTable;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
 public class GuessWho {
 
+	private final int WIDHT = 900, HEIGHT = 800, NAV_BAR_HEIGHT = 39;
 	private JFrame frame;
 	private PageContainer container;
 	private GameController controller;
@@ -55,16 +60,19 @@ public class GuessWho {
 		controller = new GameController();
 		frame = new JFrame();
 		frame.setVisible(true);
-		frame.setBounds(100, 100, 1000, 600);
-
+		frame.setBounds(400, 150, WIDHT, HEIGHT);
 		container = new PageContainer();
-		
+		container.setPreferredSize(new Dimension(WIDHT, HEIGHT-NAV_BAR_HEIGHT));
+
 		//add pages here
 		MainMenuPage mainMenu = new MainMenuPage(controller);
 		ScoreboardPage scoreboard = new ScoreboardPage(controller);
 		PlayPage playPage = new PlayPage(controller);	
 		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
 		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
+		
+		playPage.setBackground(Color.green);
+
 		
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
