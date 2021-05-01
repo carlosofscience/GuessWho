@@ -72,14 +72,13 @@ public class GuessWho {
 		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
 		
 		playPage.setBackground(Color.green);
-
-		
+	
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
 		container.addPage(howToPlayPage);
 		container.addPage(playPage);
 		container.addPage(mainMenu);
-		
+
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

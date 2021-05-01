@@ -31,7 +31,7 @@ public class GameTheme {
 		      File profiles = new File("./src/themes/"+themeName+"/profiles.txt");
 		      Scanner profilesData = new Scanner(profiles);
 		      int lineNum = 0, numOfCharactes = 0;
-		      String features = "", name = "", data;
+		      String features = "", name = "", data = "";
 		      Icon image = null;//TODO: point to default
 		      characters.clear();
 		      charactersFeatures.clear();
@@ -55,7 +55,7 @@ public class GameTheme {
 		    					String feature = "";
 		    					String[] buffer = features.split(" | ", -1);
 		    					for(int i=0; i < buffer.length; i++) {
-		    						System.out.println("\""+buffer[i]+"\"");
+//		    						System.out.println("\""+buffer[i]+"\"");
 		    						if(buffer[i].equals("|")){
 //		    							System.out.println("feature: "+feature);
 		    							if(!charactersFeatures.contains(feature)){

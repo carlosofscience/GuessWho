@@ -25,18 +25,22 @@ import java.lang.Math;
 
 public class PlayPage extends Page{
 	private GameController controller;
+	
+	JPanel characterGridContainer;
 	JPanel charactersContainer;
 
 	PlayPage(GameController controller){
 		super(controller);
 		this.controller = controller;
 		charactersContainer = new JPanel();
-		add(charactersContainer);
 		setName("PlayPage");
 
         JPanel headerContainer = new JPanel();
         headerContainer.setBackground(Color.blue);
-        headerContainer.setPreferredSize(new Dimension(900, 30));
+        headerContainer.setPreferredSize(new Dimension(900, 30));        
+        characterGridContainer = new JPanel();
+        characterGridContainer.setBackground(Color.blue);
+        characterGridContainer.setPreferredSize(new Dimension(900, 600));
         JPanel suggestionContainer = new JPanel();
         suggestionContainer.setBackground(Color.yellow);
         suggestionContainer.setPreferredSize(new Dimension(900, 30));
@@ -49,14 +53,17 @@ public class PlayPage extends Page{
 
         
         add(headerContainer);
-        displayThemeIcons();
+        add(characterGridContainer);
         //adding containers
         add(suggestionContainer);
         add(askFeatureContainer);
         add(guessContainer);
 //		PageLink PlayPageLink = new PageLink("Back");
 //		PlayPageLink.setLink("MainMenuPage");
-
+		JButton exitGameSessionBtn= new JButton("Exit Match");
+        JLabel gameStatus = new JLabel("Guess a feature");
+        JLabel rightGuesses = new JLabel("Right: 0");
+        JLabel wrongGuesses = new JLabel("Wrong: 0");
 		
         JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
         guessInput.setBounds(20,0, 600,60); 
@@ -77,27 +84,28 @@ public class PlayPage extends Page{
 	        	@Override
 	        	public void actionPerformed(ActionEvent event) {    	
 	        		askInput.setText(suggestionBtns[index].getText());
+	        		suggestionBtns[index].setVisible(false);
 	        	}
 	        });
 		}
         
+		//adding components to layout containers
+		headerContainer.add(exitGameSessionBtn);
+		headerContainer.add(gameStatus);
+		headerContainer.add(rightGuesses);
+		headerContainer.add(wrongGuesses);
+		characterGridContainer.add(charactersContainer);
         askFeatureContainer.add(askInput);
         askFeatureContainer.add(askBtn);
-        
         guessContainer.add(guessInput);
         guessContainer.add(guessBtn);
 //        addLink(PlayPageLink);
                
         
-        //game logic
-        controller.startGameSession();
-        
         askInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.out.println("The entered text is: " + askInput.getText());
-//                controller.guess()
-                askInput.setText("");
+            	System.out.println("heloo");
             }
         });
         askInput.getDocument().addDocumentListener(new DocumentListener() {
@@ -107,8 +115,6 @@ public class PlayPage extends Page{
 			@Override
 			public void insertUpdate(DocumentEvent e) {
         		ArrayList<String> suggestions = controller.getSuggestion(askInput.getText());
-        		
-        		
         		
         		for(int i=0; i < suggestionBtns.length; i++ ){
         			suggestionBtns[i].setText("");
@@ -128,14 +134,34 @@ public class PlayPage extends Page{
         askBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.out.println("The entered text is: " + askInput.getText());
+            	String feature = askInput.getText();
+                System.out.println("The entered text is: " + feature);
+                //check if feature is valid
+                if(controller.isValidFeature(feature)) {
+                	if(controller.gameSession.isCharacterFeature(feature)) {
+                		gameStatus.setText("You guessed right!");
+                	}else{
+                		gameStatus.setText("Wrong feature try again...");
+                	}
+                	//update score
+                	rightGuesses.setText("Rigth: "+controller.gameSession.getCorrectGuesses());
+                	wrongGuesses.setText("Wrong: "+controller.gameSession.getIncorrectGuesses());
+                }else {
+                	gameStatus.setText("That's not a valid feature!");
+                }
+                //ask controller if is a right feature
                 askInput.setText("");
             }
         });
         
+        
+     //load characters into screen
+     displayThemeIcons();
+     //start game session
+     controller.startGameSession();
 	}
+	
 	//return 2d array of the grid containing integers with the size. row, column
-
 	private int[] getArray(int size, int value) {
 		int[] arr = new int[size];
 		java.util.Arrays.fill(arr, value);
@@ -169,7 +195,7 @@ public class PlayPage extends Page{
 
 		
 		//remove container if is added
-		remove(charactersContainer);
+		characterGridContainer.remove(charactersContainer);
 		
 		//create new container, new layout
 		charactersContainer = new JPanel();
@@ -192,7 +218,7 @@ public class PlayPage extends Page{
 		}
 
 		//add container
-		add(charactersContainer);
+		characterGridContainer.add(charactersContainer);
 //		return new Icon[bigSide][smallSide];
 	} 
 	

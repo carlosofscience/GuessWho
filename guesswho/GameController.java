@@ -11,11 +11,16 @@ public class GameController {
 	GameController(){
 		currentGameTheme = new GameTheme("Classic GuessWho");
 		subcriberPages = new ArrayList<Page>();
+		gameSession = new GameSession(currentGameTheme.getCharacters().get(1));
 		//load all themes
 	}
 	
+	public boolean isCharacterFeature(String feature) {
+		return gameSession.getMisteryCharacter().hasFeature(feature);
+	}
+	
 	public void startGameSession() {
-		gameSession = new GameSession(currentGameTheme.getCharacters().get(0));
+		System.out.println("mistery character: "+gameSession.getMisteryCharacter());
 	}
 	
 	public void setGameTheme(String themeDirName) {
@@ -47,4 +52,10 @@ public class GameController {
 		return suggestions;
 	}
 	
+	public boolean isValidFeature(String userInput) {
+		for(String feature: currentGameTheme.charactersFeatures)
+			if(feature.equals(userInput))
+				return true;
+		return false;		
+	}
 }
