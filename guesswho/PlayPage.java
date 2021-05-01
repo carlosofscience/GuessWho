@@ -147,7 +147,7 @@ public class PlayPage extends Page{
 		return arr;
 	}
 	
-	//called from uptate()
+	//called from update()
 	private void displayThemeIcons(){
 		//this code calculates best rectangle grid
 		int numOfCharacters = controller.currentGameTheme.getCharacters().size();

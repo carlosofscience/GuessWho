@@ -77,8 +77,8 @@ public class GuessWho {
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
 		container.addPage(howToPlayPage);
-		container.addPage(mainMenu);
 		container.addPage(playPage);
+		container.addPage(mainMenu);
 		
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
