@@ -78,6 +78,7 @@ public class GuessWho {
 		container.addPage(howToPlayPage);
 		container.addPage(playPage);
 		container.addPage(mainMenu);
+
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
