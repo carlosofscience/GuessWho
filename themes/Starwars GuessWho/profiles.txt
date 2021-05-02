@@ -1,0 +1,73 @@
+24
+BB8
+BB8.png
+| has no hair | is mechanical | is not human |
+Fortuna
+Fortuna.png
+| is not human | has no hair | is not mechanical | has no antenna | has small nose | is male |
+BobaFett
+BobaFett.png
+| is human | is wearing armor | has helmet | is male |
+C3P0
+C3P0.png
+| is mechanical | has large eyes | has small nose | has small lips | is male |
+Chewy
+Chewy.png
+| has hair | is not human | has large eyes | is wearing armor | has large nose | has large lips | is male |
+DarthMaul
+DarthMaul.png
+| is not human | has hood | has large eyes | has small nose | has small lips | has hood | is male |
+Sidious
+Sidious.png
+| has hood | has small eyes | has small nose | is not wearing armor | has big lips | is human | is male |
+DarthVader
+DarthVader.png
+| is wearing armor | is human | has helmet | is male |
+Dooku
+Dooku.png
+| has hair | has small eyes | has small nose | is human | has no armor | has short hair | has small lips | has facial hair | is male |
+Greedo
+Greedo.png
+| is not human | is male | has large eyes | has large nose | has no armor |
+HanSolo
+HanSolo.png
+| has hair | is human | has no armor | has small eyes | has small nose | has medium lips | has medium hair | is male |
+Jaba
+Jaba.png
+| is not human | has no hair | has large eyes | has large nose | has large lips |
+Jarjar
+Jarjar.png
+| is not human | has no hair | has large eyes | has large nose | has no armor | has large lips |
+KitFisto
+KitFisto.png
+| is not human | has no hair | has large eyes | has large nose| has small lips |
+Lando
+Lando.png
+| is human | has small eyes | has large nose | has no armor | has hair | has curly hair | has medium hair | has black hair | has facial hair | is male |
+Leia
+Leia.png
+| is human | has small eyes | has small nose | has hair | has small lips | has black hair | has long hair | is female |
+LukeSkywalker
+LukeSkywalker.png
+| is human | has small eyes | has small nose | has hair | has long hair | has facial hair | has medium lips | is male |
+MaceWindu
+MaceWindu.png
+| is human | has no hair | has small eyes | has small nose | has medium lips | is male |
+ObiWan
+ObiWan.png
+| is human | has hair | has hood | has small eyes | has small nose | is male | has medium lips |
+Padme
+Padme.png
+| is human | has hair | has hood | is female | has small eyes | has small nose | has small lips | has long hair | has black hair |
+R2D2
+R2d2.PNG
+| is mechanical | has no hair | has armor | is not human |
+Watto
+Watto.png
+| is not human | has large nose | has large eyes | has no hair | has large lips | is male |
+Woki
+Woki.png
+| has hair | has large eyes | has large nose | is not human | has no armor | has large lips |
+Yoda
+Yoda.png
+| is not human | has large eyes | has small nose | has hair | has no armor | has small lips | is male |
