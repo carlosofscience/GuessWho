@@ -54,20 +54,21 @@ public class ConfirmationPage extends Page{
         
 		PageLink playPageLink = new PageLink("Discard");
 		playPageLink.setLink("PlayPage");
-		JButton confirmationBtn= new JButton("Confirm");	
-        
+		PageLink confirmationBtn= new PageLink("Confirm");	
+		confirmationBtn.setLink("ResultsPage");
         
 		//adding components to layout containers
 		characterGridContainer.add(chosenCharacterContainer);
 		confirmationMsgContainer.add(confirmationMsg);
 		addLink(playPageLink);
-		add(confirmationBtn);
+		addLink(confirmationBtn);
 		
                
         
 		confirmationBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+            	controller.notifySubscribers("ResultsPage");
             	System.out.println("here make sure controller knows that is a confirm on the selected character..");
             }
         });

@@ -64,22 +64,24 @@ public class GuessWho {
 		container = new PageContainer();
 		container.setPreferredSize(new Dimension(WIDHT, HEIGHT-NAV_BAR_HEIGHT));
 
-		//add pages here
+		//add pages here TODO: remove passing controller, this is passed implicitly when added to container
 		MainMenuPage mainMenu = new MainMenuPage(controller);
 		ScoreboardPage scoreboard = new ScoreboardPage(controller);
 		PlayPage playPage = new PlayPage(controller);	
 		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
 		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
 		ConfirmationPage confirmationPage = new ConfirmationPage(controller);
+		ResultsPage resultsPage = new ResultsPage(controller);
 		
 		playPage.setBackground(Color.green);
 	
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
 		container.addPage(howToPlayPage);
-		container.addPage(mainMenu);
+		container.addPage(resultsPage);
 		container.addPage(confirmationPage);
 		container.addPage(playPage);
+		container.addPage(mainMenu);
 
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);

@@ -20,12 +20,15 @@ public class Page extends JPanel{
 	}
 	
 	public void addLink(PageLink link, Object component) {
-		links.add(link);
+		registerLink(link);
 		if(component != null) {
 			add(link, component);
 		}else {
 			add(link);
 		}
+	}
+	public void registerLink(PageLink link) {
+		links.add(link);
 	}
 	public void setGameController(GameController controller) {
 		this.controller = controller;

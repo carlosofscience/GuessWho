@@ -6,13 +6,14 @@ public class GameSession {
 	private int incorrectGuesses;
 	private GameCharacter misteryCharacter;
 	private GameCharacter suspectCharacter;
-	
+	public Boolean playerWins;
 	GameSession(GameCharacter misteryCharacter){
 		//choose a random character
 		this.misteryCharacter = misteryCharacter;
 		correctGuesses=0;
 		incorrectGuesses=0;
 		suspectCharacter = null;
+		playerWins = null;
 	}
 	
 	public boolean isCharacterFeature(String feature) {
