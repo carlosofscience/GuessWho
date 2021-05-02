@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 public class Page extends JPanel{
 	protected ArrayList<PageLink> links;//keeps tracks of links within the box
 	protected GameController controller;
+	protected String pageName;
 	
-	Page(GameController _controller ){
+	Page(){
 		super();
-		controller = _controller;
 		links = new ArrayList<PageLink>();
 	}
 	
@@ -32,19 +32,15 @@ public class Page extends JPanel{
 	}
 	public void setGameController(GameController controller) {
 		this.controller = controller;
+		controller.addSubscriber(this, this.getName());
+		System.out.println("added Subscriber page: "+this.getName()+" to :" +this.getName());
+
 	}
 	
 	ArrayList<PageLink> getLinks(){
 		return links;
 	}
-	
-	@Override
-	public void setName(String name) {
-		controller.addSubscriber(this, name);
-		super.setName(name);
-		System.out.println("added Subscriber page: "+name+" to :" +name);
-	}
-	
+
 	//to be updated by publisher controller
 	public void update() {
 		

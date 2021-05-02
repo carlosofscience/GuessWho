@@ -16,8 +16,7 @@ public class ResultsPage extends Page
 {
 	JPanel pageContainer;
 	
-	ResultsPage(GameController controller){
-		super(controller);
+	ResultsPage(){
 		setName("ResultsPage");
 		pageContainer = new JPanel();
 		pageContainer.setBackground(Color.blue);

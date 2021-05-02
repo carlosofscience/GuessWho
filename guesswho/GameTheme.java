@@ -93,6 +93,14 @@ public class GameTheme {
 		  
 	}
 	
+	public Icon getThemeIcon() {
+		return themeIcon;
+	}
+
+	public void setThemeIcon(Icon themeIcon) {
+		this.themeIcon = themeIcon;
+	}
+
 	public String getThemePath(String themeName) {
 		return "./src/themes/"+themeName+"/imgs/icon.PNG";
 	}

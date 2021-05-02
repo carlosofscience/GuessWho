@@ -12,8 +12,7 @@ import javax.swing.JPanel;
 
 public class ScoreboardPage extends Page
 {
-	ScoreboardPage(GameController controller){
-		super(controller);
+	ScoreboardPage(){
 		setName("ScoreboardPage");
 		GridBagLayout gbl_ScoreboardPanel = new GridBagLayout();
 

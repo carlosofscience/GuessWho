@@ -26,18 +26,15 @@ import javax.swing.border.LineBorder;
 
 public class ChooseThemePage extends Page{
 	
-	GameController controller;
 	JLabel ChooseThemeLabel;
 	
-	ChooseThemePage(GameController controller){
+	ChooseThemePage(){
 
 		/*
 		 TODO:
 			1- create a directory for themes (each theme is a directory)
 			2- read directory names display the window as buttons
 		*/
-		super(controller);
-		this.controller = controller;
 		setName("ChooseThemePage");
 		GridBagLayout gbl_PlayPage = new GridBagLayout();
 		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};

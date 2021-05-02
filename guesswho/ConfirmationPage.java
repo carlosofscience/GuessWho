@@ -24,15 +24,12 @@ import javax.swing.event.DocumentListener;
 import java.lang.Math;
 
 public class ConfirmationPage extends Page{
-	private GameController controller;
 	
 	JPanel characterGridContainer;//holds removable container
 	JPanel chosenCharacterContainer;
 	JLabel confirmationMsg; 
 	
-	ConfirmationPage(GameController controller){
-		super(controller);
-		this.controller = controller;
+	ConfirmationPage(){
 		characterGridContainer = new JPanel();
 		characterGridContainer.setBackground(Color.blue);
 		characterGridContainer.setPreferredSize(new Dimension(900, 300));       

@@ -13,12 +13,9 @@ import javax.swing.JPanel;
 
 public class MainMenuPage extends Page{
 	
-	GameController controller;
 	JLabel themeLabel;
 	
-	MainMenuPage(GameController controller){
-		super(controller);
-		this.controller = controller;
+	MainMenuPage(){
 		setName("MainMenuPage");
 
 		GridBagLayout gbl_MainMenuPanel = new GridBagLayout();

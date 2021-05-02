@@ -24,15 +24,12 @@ import javax.swing.event.DocumentListener;
 import java.lang.Math;
 
 public class PlayPage extends Page{
-	private GameController controller;
 	
 	JPanel characterGridContainer;
 	JPanel charactersContainer;
 	PageLink hiddenConfirmationPageLink;
 	
-	PlayPage(GameController controller){
-		super(controller);
-		this.controller = controller;
+	PlayPage(){
 		charactersContainer = new JPanel();
 		setName("PlayPage");
 

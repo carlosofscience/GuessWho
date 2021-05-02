@@ -21,6 +21,7 @@ public class PageContainer extends JPanel {
 	
 	PageContainer(){
 		super();
+		gameController = new GameController();
 		pages = new ArrayList<String>();
 		links = new ArrayList<String>();
 		layout = new CardLayout();

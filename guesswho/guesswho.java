@@ -3,22 +3,8 @@ package guesswho;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import java.awt.Insets;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JLayeredPane;
-import javax.swing.JTable;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -27,7 +13,6 @@ public class GuessWho {
 	private final int WIDHT = 900, HEIGHT = 800, NAV_BAR_HEIGHT = 39;
 	private JFrame frame;
 	private PageContainer container;
-	private GameController controller;
 
 	/**
 	 * Launch the application.
@@ -57,7 +42,6 @@ public class GuessWho {
 	 */
 	private void initialize() {
 		
-		controller = new GameController();
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setBounds(400, 150, WIDHT, HEIGHT);
@@ -65,13 +49,13 @@ public class GuessWho {
 		container.setPreferredSize(new Dimension(WIDHT, HEIGHT-NAV_BAR_HEIGHT));
 
 		//add pages here TODO: remove passing controller, this is passed implicitly when added to container
-		MainMenuPage mainMenu = new MainMenuPage(controller);
-		ScoreboardPage scoreboard = new ScoreboardPage(controller);
-		PlayPage playPage = new PlayPage(controller);	
-		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
-		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
-		ConfirmationPage confirmationPage = new ConfirmationPage(controller);
-		ResultsPage resultsPage = new ResultsPage(controller);
+		MainMenuPage mainMenu = new MainMenuPage();
+		ScoreboardPage scoreboard = new ScoreboardPage();
+		PlayPage playPage = new PlayPage();	
+		ChooseThemePage ChooseThemePage = new ChooseThemePage();	
+		HowToPlayPage howToPlayPage = new HowToPlayPage();
+		ConfirmationPage confirmationPage = new ConfirmationPage();
+		ResultsPage resultsPage = new ResultsPage();
 		
 		playPage.setBackground(Color.green);
 	
