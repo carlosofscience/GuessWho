@@ -22,7 +22,7 @@ Charles.PNG
 has blonde hair | has medium hair | has straight hair | has facial hair | has big lips | has black eyes | has blonde brow | has thick brow | has long brow | has big nose | is male
 Claire
 Claire.PNG
-has orange hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thin brow | has medium brow | has small nose | is female | has hat
+has orange hair | has medium hair | has curly hair | has no facial hair | has small lips | has black eyes | has orange brow | has thin brow | has medium brow | has small nose | is female | has hat | has glasses
 David
 David.PNG
 has blonde hair | has medium hair | has straight hair | has facial hair | has big lips | has brown eyes | has blonde brow | has thick brow | has long brow | has small nose | is male

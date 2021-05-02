@@ -1,0 +1,73 @@
+24
+Baraka
+Baraka.PNG
+| is bald | has large nose | has big lips | is muscular | is male |
+Cyrax
+Cyrax.PNG
+| has green eyes | has black hair | has mask | is muscular | is male |
+Goro
+Goro.PNG
+| has black hair | has long hair | is muscular | is male | has small nose | has big lips |
+Jade
+Jade.PNG
+| has red eyes | has long hair | has black hair | has straight hair | has black brows | has mask | is female |
+JaxBriggs
+JaxBriggs.PNG
+| has black hair | has curly hair | has short hair | has black brows | has long brows | is male | has facial hair | has big nose | has big mouth | is muscular |
+JohnnyCage
+JohnnyCage.PNG
+| has black hair | has medium hair | has straight hair | has big nose | has medium mouth | is male |
+Kabal
+Kabal.PNG
+| has black hair | has long hair | has straight hair | has mask | is male | has red eyes |
+Kano
+Kano.PNG
+| has black hair | has short hair | has black brows | has medium nose | has facial hair | is male | is muscular |
+Kitana
+Kitana.PNG
+| is female | has long hair | has black hair | has straight hair | has black brows | has mask |
+KungLao
+KungLao.PNG
+| is male | has black brows | has thick brows | has long brows | has medium nose | has medium lips | has headwear |
+LiuKang
+LiuKang.PNG
+| is male | has black eyes | has black hair | has straight hair | has long hair | has thick brows | has black brows | has big nose | has medium lips | is muscular |
+Mileena
+Mileena.PNG
+| is female | has black hair | has long hair | has straight hair | has mask | has thin brows | has long brows |
+Nightwolf
+Nightwolf.PNG
+| is male | has headwear | has big nose | has medium lips | is muscular | has black eyes |
+NoobSaibot
+NoobSaibot.PNG
+| is male | has headwear | has white eyes | has mask |
+QuanChi
+QuanChi.PNG
+| is male | is bald | has big nose | has medium lips |
+Raiden
+Raiden.PNG
+| is male | has headwear | has blue eyes | has big nose | has big lips |
+Reptile
+Reptile.PNG
+| is male | has headwear | has yellow eyes | has mask |
+Scorpion
+Scorpion.PNG
+| is male | has yellow eyes | has mask | has headwear |
+ShangTsung
+ShangTsung.PNG
+| is male | has black hair | has straight hair | has long hair | has thin brows | has black brows | has long brows | has big nose | has mediium lips | is muscular |
+ShaoKahn
+ShaoKahn.PNG
+| is male | is muscular | has headwear | has red eyes |
+Sheeva
+Sheeva.PNG
+| is female | has black hair | has short hair | has straight hair | has red eyes | has medium nose | has medium lips |
+Smoke
+Smoke.PNG
+| is male | has headwear | has yellow eyes | has mask |
+SonyaBlade
+SonyaBlade.PNG
+| is female | has headwear | has blonde hair | has straight hair | has long hair | has thin brows | has black brows | has medium nose | has small lips |
+SubZero
+SubZero.PNG
+| is male | has headwear | has mask | has thick brows | has black brows | has black eyes |
