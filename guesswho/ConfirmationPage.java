@@ -28,6 +28,7 @@ public class ConfirmationPage extends Page{
 	
 	JPanel characterGridContainer;//holds removable container
 	JPanel chosenCharacterContainer;
+	JLabel confirmationMsg; 
 	
 	ConfirmationPage(GameController controller){
 		super(controller);
@@ -35,6 +36,8 @@ public class ConfirmationPage extends Page{
 		characterGridContainer = new JPanel();
 		characterGridContainer.setBackground(Color.blue);
 		characterGridContainer.setPreferredSize(new Dimension(900, 300));       
+		
+		chosenCharacterContainer =  new JPanel();
 		setName("ConfirmationPage");    
 
         JPanel confirmationMsgContainer = new JPanel();
@@ -47,7 +50,7 @@ public class ConfirmationPage extends Page{
         add(characterGridContainer);
         add(confirmationMsgContainer);
         
-        JLabel confirmationMsg = new JLabel("Are you sure this is the right character? (you only have 1 try)");
+        confirmationMsg = new JLabel("Are you sure this is the right character? (you only have 1 try)");
         
 		PageLink playPageLink = new PageLink("Discard");
 		playPageLink.setLink("PlayPage");
@@ -55,6 +58,7 @@ public class ConfirmationPage extends Page{
         
         
 		//adding components to layout containers
+		characterGridContainer.add(chosenCharacterContainer);
 		confirmationMsgContainer.add(confirmationMsg);
 		addLink(playPageLink);
 		add(confirmationBtn);
@@ -87,7 +91,7 @@ public class ConfirmationPage extends Page{
         chosenCharacterContainer.setBackground(Color.yellow);
         chosenCharacterContainer.setPreferredSize(new Dimension(600, 250));    
 		chosenCharacterContainer.add(characterImg);
-		
+		confirmationMsg.setText("Are you sure \""+controller.gameSession.getSuspectCharacter().getName()+"\" is the right character? (you only have 1 try)");
 		//add the new updated container
 		characterGridContainer.add(chosenCharacterContainer);
 	}

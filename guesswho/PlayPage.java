@@ -61,7 +61,7 @@ public class PlayPage extends Page{
         add(guessContainer);
         hiddenConfirmationPageLink = new PageLink("confirm");
 		hiddenConfirmationPageLink.setLink("ConfirmationPage");
-//		hiddenConfirmationPageLink.setVisible(false);
+		hiddenConfirmationPageLink.setVisible(false);
 		addLink(hiddenConfirmationPageLink);
 		JButton exitGameSessionBtn= new JButton("Exit Match");
         JLabel gameStatus = new JLabel("Guess a feature");
@@ -214,9 +214,11 @@ public class PlayPage extends Page{
                 	//got to confirmation page. save character with this name as suspect
                 	GameCharacter suspect = controller.currentGameTheme.getCharacterByName(name);
                 	if (suspect != null) {
-                		////set suspect
+                		//set suspect
                 		controller.gameSession.setSuspectCharacter(suspect);
-                    	//send user to confirmation page
+                    	//update confirmationPage
+                		controller.notifySubscribers("ConfirmationPage");
+                		//send user to confirmation page
             			hiddenConfirmationPageLink.doClick();
             			System.out.println("Moving to confirmation page");
                 	}else {
