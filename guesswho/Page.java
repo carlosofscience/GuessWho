@@ -17,7 +17,7 @@ public class Page extends JPanel{
 	}
 	
 	public void addLink(PageLink link) {
-		add(link, null);
+		addLink(link, null);
 	}
 	
 	public void addLink(PageLink link, Object component) {

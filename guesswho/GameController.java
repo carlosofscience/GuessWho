@@ -40,9 +40,19 @@ public class GameController {
 		subcriberPages.add(page);
 	}
 
-	public ArrayList<String> getSuggestion(String text) {
-//		ArrayList<String> charactersFeatures = currentGameTheme.charactersFeatures;
-//		System.out.print("charactersFeatures size =>: "+currentGameTheme.charactersFeatures.size());
+	public ArrayList<String> getNameSuggestion(String text) {
+//		returns up to 4 suggestions for names
+		ArrayList<String> suggestions = new ArrayList<String>();
+		for(String name: currentGameTheme.charactersNames) {
+			if(name.indexOf(text) >= 0 && suggestions.size() < 4 && !suggestions.contains(name)) {
+				suggestions.add(name);
+			}
+		}	
+		return suggestions;
+	}
+	
+	public ArrayList<String> getFeatureSuggestion(String text) {
+
 		ArrayList<String> suggestions = new ArrayList<String>();
 		for(String feature: currentGameTheme.charactersFeatures) {
 			if(feature.indexOf(text) >= 0 && suggestions.size() < 4 && !suggestions.contains(feature)) {
@@ -50,6 +60,13 @@ public class GameController {
 			}
 		}	
 		return suggestions;
+	}
+	
+	public boolean isValidName(String userInput) {
+		for(String name: currentGameTheme.charactersNames)
+			if(name.equals(userInput))
+				return true;
+		return false;		
 	}
 	
 	public boolean isValidFeature(String userInput) {

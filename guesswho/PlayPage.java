@@ -28,7 +28,8 @@ public class PlayPage extends Page{
 	
 	JPanel characterGridContainer;
 	JPanel charactersContainer;
-
+	PageLink hiddenConfirmationPageLink;
+	
 	PlayPage(GameController controller){
 		super(controller);
 		this.controller = controller;
@@ -58,8 +59,10 @@ public class PlayPage extends Page{
         add(suggestionContainer);
         add(askFeatureContainer);
         add(guessContainer);
-//		PageLink PlayPageLink = new PageLink("Back");
-//		PlayPageLink.setLink("MainMenuPage");
+        hiddenConfirmationPageLink = new PageLink("confirm");
+		hiddenConfirmationPageLink.setLink("ConfirmationPage");
+//		hiddenConfirmationPageLink.setVisible(false);
+		addLink(hiddenConfirmationPageLink);
 		JButton exitGameSessionBtn= new JButton("Exit Match");
         JLabel gameStatus = new JLabel("Guess a feature");
         JLabel rightGuesses = new JLabel("Right: 0");
@@ -68,27 +71,40 @@ public class PlayPage extends Page{
         JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
         guessInput.setBounds(20,0, 600,60); 
         JTextField askInput = new JTextField("Enter feature to guess...", 40);  
-        guessInput.setBounds(20,60, 600,60); 
+        askInput.setBounds(20,60, 600,60); 
         
         
 		JButton askBtn = new JButton("Ask Feature");
 		JButton guessBtn = new JButton("Final Guess");
-		JButton[] suggestionBtns = new JButton[4];
+		JButton[] featureSuggestionBtns = new JButton[4];
+		JButton[] namesSuggestionBtns = new JButton[4];
 		
-		for(int i=0; i < suggestionBtns.length; i++ ) {
+		for(int i=0; i < featureSuggestionBtns.length; i++ ) {
 			final int index = i;
-			suggestionBtns[i] = new JButton("");
-			suggestionBtns[i].setVisible(false);
-	        suggestionContainer.add(suggestionBtns[i]);
-	        suggestionBtns[i].addActionListener(new ActionListener() {
+			featureSuggestionBtns[i] = new JButton("");
+			featureSuggestionBtns[i].setVisible(false);
+	        suggestionContainer.add(featureSuggestionBtns[i]);
+	        featureSuggestionBtns[i].addActionListener(new ActionListener() {
 	        	@Override
 	        	public void actionPerformed(ActionEvent event) {    	
-	        		askInput.setText(suggestionBtns[index].getText());
-	        		suggestionBtns[index].setVisible(false);
+	        		askInput.setText(featureSuggestionBtns[index].getText());
+	        		featureSuggestionBtns[index].setVisible(false);
 	        	}
 	        });
 		}
-        
+		for(int i=0; i < namesSuggestionBtns.length; i++ ) {
+			final int index = i;
+			namesSuggestionBtns[i] = new JButton("");
+			namesSuggestionBtns[i].setVisible(false);
+	        suggestionContainer.add(namesSuggestionBtns[i]);
+	        namesSuggestionBtns[i].addActionListener(new ActionListener() {
+	        	@Override
+	        	public void actionPerformed(ActionEvent event) {    	
+	        		guessInput.setText(namesSuggestionBtns[index].getText());
+	        		namesSuggestionBtns[index].setVisible(false);
+	        	}
+	        });
+		}
 		//adding components to layout containers
 		headerContainer.add(exitGameSessionBtn);
 		headerContainer.add(gameStatus);
@@ -114,15 +130,20 @@ public class PlayPage extends Page{
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-        		ArrayList<String> suggestions = controller.getSuggestion(askInput.getText());
+        		ArrayList<String> suggestions = controller.getFeatureSuggestion(askInput.getText());
         		
-        		for(int i=0; i < suggestionBtns.length; i++ ){
-        			suggestionBtns[i].setText("");
-            		suggestionBtns[i].setVisible(false);	
+        		//hide all names suggestions
+    			for(JButton nameSuggestions: namesSuggestionBtns) {
+    				nameSuggestions.setVisible(false);
+    			}
+
+        		for(int i=0; i < featureSuggestionBtns.length; i++ ){
+        			featureSuggestionBtns[i].setText("");
+        			featureSuggestionBtns[i].setVisible(false);	
 
         			if(i < suggestions.size()) {
-        				suggestionBtns[i].setText(suggestions.get(i));
-                		suggestionBtns[i].setVisible(suggestions.get(i).length() > 0);	
+        				featureSuggestionBtns[i].setText(suggestions.get(i));
+        				featureSuggestionBtns[i].setVisible(suggestions.get(i).length() > 0);	
         			}
         		}
 			}
@@ -154,6 +175,61 @@ public class PlayPage extends Page{
             }
         });
         
+        guessInput.getDocument().addDocumentListener(new DocumentListener() {
+        	public void changedUpdate(DocumentEvent e) {
+        	}
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+        		ArrayList<String> suggestions = controller.getNameSuggestion(guessInput.getText());
+        		
+        		//hide all features suggestions
+    			for(JButton featureSuggestions: featureSuggestionBtns) {
+    				featureSuggestions.setVisible(false);
+    			}
+
+        		for(int i=0; i < namesSuggestionBtns.length; i++ ){
+        			namesSuggestionBtns[i].setText("");
+        			namesSuggestionBtns[i].setVisible(false);	
+
+        			if(i < suggestions.size()) {
+        				namesSuggestionBtns[i].setText(suggestions.get(i));
+        				namesSuggestionBtns[i].setVisible(suggestions.get(i).length() > 0);	
+        			}
+        		}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+			}
+        });
+        
+        guessBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+            	String name = guessInput.getText();
+                System.out.println("The guessBtn entered text is: " + name);
+                //check if feature is valid
+                if(controller.isValidName(name)) {
+                	//got to confirmation page. save character with this name as suspect
+                	GameCharacter suspect = controller.currentGameTheme.getCharacterByName(name);
+                	if (suspect != null) {
+                		////set suspect
+                		controller.gameSession.setSuspectCharacter(suspect);
+                    	//send user to confirmation page
+            			hiddenConfirmationPageLink.doClick();
+            			System.out.println("Moving to confirmation page");
+                	}else {
+                    	gameStatus.setText("did not find a character named \""+name+"\"");
+                	}
+
+                }else {
+                	gameStatus.setText("\""+name+"\" is not a valid name!");
+                }
+                //ask controller if is a right feature
+                guessInput.setText("");
+            }
+        });
         
      //load characters into screen
      displayThemeIcons();

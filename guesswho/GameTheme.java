@@ -9,6 +9,7 @@ public class GameTheme {
 
 	private ArrayList<GameCharacter> characters;
 	public ArrayList<String> charactersFeatures;
+	public ArrayList<String> charactersNames;
 	private Icon themeIcon;
 	public String themeName;
 	public boolean isAvaliable;
@@ -16,13 +17,14 @@ public class GameTheme {
 	GameTheme(String _themeName){
 		themeName = _themeName;
 		characters = new ArrayList<GameCharacter>();
+		charactersFeatures = new ArrayList<String>();
+		charactersNames = new ArrayList<String>();
 		loadTheme(_themeName);
 	}
 	
 	//load characters with all images and features
 	public void loadTheme(String _themeName) {
 		themeName = _themeName;
-		charactersFeatures = new ArrayList<String>();
 		System.out.println("loading theme: "+ _themeName);
 		//get theme icon
 		themeIcon = new Icon("./src/themes/"+themeName+"/imgs/THEME_ICON.PNG", 40, 40);
@@ -35,6 +37,7 @@ public class GameTheme {
 		      Icon image = null;//TODO: point to default
 		      characters.clear();
 		      charactersFeatures.clear();
+		      charactersNames.clear();
 		      while (profilesData.hasNextLine()) {
 		    	  
 			    data = profilesData.nextLine();
@@ -45,6 +48,7 @@ public class GameTheme {
 		    		switch(lineNum % 3) {
 		    			case 1:
 		    				name = data;
+		    				charactersNames.add(name);
 		    				break;
 		    			case 2:
 		    				image =  new Icon("./src/themes/"+themeName+"/imgs/"+data);
@@ -92,10 +96,15 @@ public class GameTheme {
 	public String getThemePath(String themeName) {
 		return "./src/themes/"+themeName+"/imgs/icon.PNG";
 	}
-	
+
 	public ArrayList<GameCharacter> getCharacters() {
 		return characters;
 	}
 	
+	public GameCharacter getCharacterByName(String name) {
+		for (GameCharacter character : characters) 
+			if(name.equals(character.getName())) return character;
+		return null;
+	}
 	
 }

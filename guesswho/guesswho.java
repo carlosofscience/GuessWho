@@ -70,14 +70,16 @@ public class GuessWho {
 		PlayPage playPage = new PlayPage(controller);	
 		ChooseThemePage ChooseThemePage = new ChooseThemePage(controller);	
 		HowToPlayPage howToPlayPage = new HowToPlayPage(controller);
+		ConfirmationPage confirmationPage = new ConfirmationPage(controller);
 		
 		playPage.setBackground(Color.green);
 	
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
 		container.addPage(howToPlayPage);
-		container.addPage(playPage);
 		container.addPage(mainMenu);
+		container.addPage(confirmationPage);
+		container.addPage(playPage);
 
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);

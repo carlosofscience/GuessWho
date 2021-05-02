@@ -26,48 +26,38 @@ import java.lang.Math;
 public class ConfirmationPage extends Page{
 	private GameController controller;
 	
-	JPanel characterGridContainer;
-	JPanel charactersContainer;
-
+	JPanel characterGridContainer;//holds removable container
+	JPanel chosenCharacterContainer;
+	
 	ConfirmationPage(GameController controller){
 		super(controller);
 		this.controller = controller;
-		charactersContainer = new JPanel();
-		setName("ConfirmationPage");
-
-        JPanel chosenCharacterContainer = new JPanel();
-        chosenCharacterContainer.setBackground(Color.blue);
-        chosenCharacterContainer.setPreferredSize(new Dimension(900, 300));        
+		characterGridContainer = new JPanel();
+		characterGridContainer.setBackground(Color.blue);
+		characterGridContainer.setPreferredSize(new Dimension(900, 300));       
+		setName("ConfirmationPage");    
 
         JPanel confirmationMsgContainer = new JPanel();
         confirmationMsgContainer.setBackground(Color.red);
         confirmationMsgContainer.setPreferredSize(new Dimension(900, 100));
       
-        JPanel optionsContainer = new JPanel();
-        optionsContainer.setBackground(Color.yellow);
-        optionsContainer.setPreferredSize(new Dimension(900, 100));
-        
+
 
         //adding containers
-        add(chosenCharacterContainer);
+        add(characterGridContainer);
         add(confirmationMsgContainer);
-        add(optionsContainer);
         
         JLabel confirmationMsg = new JLabel("Are you sure this is the right character? (you only have 1 try)");
         
-		PageLink PlayPageLink = new PageLink("Discard");
-		PlayPageLink.setLink("PlayPage");
-		
-		JButton confirmationBtn= new JButton("Confirm");
-	
-        JLabel characterImg = new JLabel();
-		
+		PageLink playPageLink = new PageLink("Discard");
+		playPageLink.setLink("PlayPage");
+		JButton confirmationBtn= new JButton("Confirm");	
+        
         
 		//adding components to layout containers
-		chosenCharacterContainer.add(characterImg);
 		confirmationMsgContainer.add(confirmationMsg);
-		optionsContainer.add(PlayPageLink);
-		optionsContainer.add(confirmationBtn);
+		addLink(playPageLink);
+		add(confirmationBtn);
 		
                
         
@@ -78,6 +68,38 @@ public class ConfirmationPage extends Page{
             }
         });
 		
+	}
+	
+	private void loadSuspectCharacter(){
+		//remove container
+		characterGridContainer.remove(chosenCharacterContainer);
+		
+        //get image
+        JLabel characterImg = new JLabel();
+        characterImg.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+		Icon image = controller.gameSession.getSuspectCharacter().getImage();
+		//set size in this current line (if needed)
+		image.resize(100, 180);
+		characterImg.setIcon(image);
+		
+		//create new updated container 
+		chosenCharacterContainer = new JPanel();
+        chosenCharacterContainer.setBackground(Color.yellow);
+        chosenCharacterContainer.setPreferredSize(new Dimension(600, 250));    
+		chosenCharacterContainer.add(characterImg);
+		
+		//add the new updated container
+		characterGridContainer.add(chosenCharacterContainer);
+	}
+	
+	public void update(){
+		System.out.println("update from confirmation page");
+		if (controller.gameSession.getSuspectCharacter() != null) {
+			System.out.println("loadSuspectCharacter :0");
+			loadSuspectCharacter();
+
+		}
+				
 	}
 	
 }

@@ -5,13 +5,16 @@ public class GameSession {
 	private int correctGuesses;
 	private int incorrectGuesses;
 	private GameCharacter misteryCharacter;
+	private GameCharacter suspectCharacter;
 	
 	GameSession(GameCharacter misteryCharacter){
 		//choose a random character
 		this.misteryCharacter = misteryCharacter;
 		correctGuesses=0;
 		incorrectGuesses=0;
-		}
+		suspectCharacter = null;
+	}
+	
 	public boolean isCharacterFeature(String feature) {
 		boolean hasFeature = misteryCharacter.hasFeature(feature);
 		if(misteryCharacter.hasFeature(feature)) {
@@ -43,5 +46,14 @@ public class GameSession {
 
 	public void setMisteryCharacter(GameCharacter misteryCharacter) {
 		this.misteryCharacter = misteryCharacter;
+	}
+
+	public GameCharacter getSuspectCharacter() {
+		return suspectCharacter;
+	}
+
+	public void setSuspectCharacter(GameCharacter suspectCharacter) {
+		this.suspectCharacter = suspectCharacter;
 	}	
+
 }
