@@ -20,6 +20,7 @@ public class MainMenuPage extends Page{
 		super(controller);
 		this.controller = controller;
 		setName("MainMenuPage");
+
 		GridBagLayout gbl_MainMenuPanel = new GridBagLayout();
 		gbl_MainMenuPanel.columnWidths = new int[]{180, 105, 0};
 		gbl_MainMenuPanel.rowHeights = new int[]{30, 14, 35, 23, 23, 23, 23, 0};

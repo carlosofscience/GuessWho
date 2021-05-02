@@ -12,7 +12,6 @@ public class Page extends JPanel{
 	Page(GameController _controller ){
 		super();
 		controller = _controller;
-		controller.addSubscriber(this);
 		links = new ArrayList<PageLink>();
 	}
 	
@@ -34,6 +33,13 @@ public class Page extends JPanel{
 	
 	ArrayList<PageLink> getLinks(){
 		return links;
+	}
+	
+	@Override
+	public void setName(String name) {
+		controller.addSubscriber(this, name);
+		super.setName(name);
+		System.out.println("added Subscriber page: "+name+" to :" +name);
 	}
 	
 	//to be updated by publisher controller

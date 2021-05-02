@@ -1,11 +1,13 @@
 package guesswho;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameController {
 	
 	public GameTheme currentGameTheme;
 	public ArrayList<Page> subcriberPages;
+	public HashMap<String, ArrayList<Page>> subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
 	public GameSession gameSession;
 	
 	GameController(){
@@ -29,15 +31,38 @@ public class GameController {
 		notifySubscribers();
 	}
 	
-	public void notifySubscribers() {
+	public void notifySubscribers(String topic) {
 		System.out.println("notifySubscribers fired: subscribers("+subcriberPages.size()+")");
-		for(Page page: subcriberPages) {
-			page.update();
+		
+		//check if is a broadcast message
+		if(topic.equals("BROADCAST")) {
+			for (String key : subcriberPagesByTopic.keySet()) {
+				subcriberPagesByTopic.get(key);
+				for(Page page: subcriberPagesByTopic.get(topic)) {
+					page.update();
+				}
+			}
+		}else if (subcriberPagesByTopic.get(topic)!=null) {
+			//notify subscribers of specific topic
+			for(Page page: subcriberPagesByTopic.get(topic)) {
+				page.update();
+			}			
 		}
+
+	}
+	
+	public void notifySubscribers() {
+		notifySubscribers("BROADCAST");
 	}
 	
 	public void addSubscriber(Page page) {
-		subcriberPages.add(page);
+		addSubscriber(page, "DEFAULT");
+	}
+	
+	public void addSubscriber(Page page, String topic) {
+		ArrayList<Page> pages = (subcriberPagesByTopic.get(topic) == null)? new ArrayList<Page>(): subcriberPagesByTopic.get(topic); 
+		pages.add(page);
+		subcriberPagesByTopic.put(topic, pages);
 	}
 
 	public ArrayList<String> getNameSuggestion(String text) {
