@@ -229,11 +229,7 @@ public class PlayPage extends Page{
                 guessInput.setText("");
             }
         });
-        
-     //load characters into screen
-     displayThemeIcons();
-     //start game session
-     controller.startGameSession();
+       
 	}
 	
 	//return 2d array of the grid containing integers with the size. row, column

@@ -70,13 +70,13 @@ public class GameTheme {
 		    						else
 		    							feature+= " "+buffer[i];
 		    					}
-		    					System.out.println("characters: "+charactersFeatures);
+//		    					System.out.println("characters: "+charactersFeatures);
 			    				characters.add(new GameCharacter(name, image, features));
-			    				System.out.println("adding characters: "+characters.size());
+//			    				System.out.println("adding characters: "+characters.size());
 		    				}
 		    				break;		    				
 		    		}
-				    System.out.println("line "+lineNum+", code: "+(lineNum % 3)+", data: "+data+", characters: "+characters.size());		    		
+//				    System.out.println("line "+lineNum+", code: "+(lineNum % 3)+", data: "+data+", characters: "+characters.size());		    		
 		    	}
 			    
 			    lineNum++;

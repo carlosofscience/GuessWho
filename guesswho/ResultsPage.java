@@ -20,8 +20,10 @@ public class ResultsPage extends Page
 		setName("ResultsPage");
 		pageContainer = new JPanel();
 		pageContainer.setBackground(Color.blue);
-//		pageContainer.setPreferredSize(this.getParent().size()); 
+		pageContainer.setPreferredSize(new Dimension(900, 600)); 
+
 		add(pageContainer);
+		pageContainer.setPreferredSize(new Dimension(900, 600)); 
 		
 	}
 	
@@ -32,24 +34,27 @@ public class ResultsPage extends Page
 	private void loadPage(){
 		remove(pageContainer);
 		pageContainer = new JPanel();
-		pageContainer.setBackground(Color.blue);
-		JLabel infoMsg = new JLabel();
+		pageContainer.setBackground(Color.yellow);
+		JLabel infoMsg = new JLabel("message display here");
 		if (controller.gameSession.playerWins == true) {
 			infoMsg.setText("you guessed right, you won the match!!!");
 		}else {
 			infoMsg.setText("you guessed wrong, you LOST the match...");
 		}
-		
+		//fill page container
+		pageContainer.add(infoMsg);
+		//add updated container
 		add(pageContainer);
+		pageContainer.setPreferredSize(new Dimension(900, 600)); 
+
 	}
 	
 	@Override
 	public void update() {
 		System.out.println("udpating from results page");
-		if (controller != null && controller.gameSession != null) {
+		if (controller.gameSession != null && controller.gameSession.playerWins != null) {
 			System.out.println("calling loadPage() ");
 			loadPage();
-
 		}
 	}
 }

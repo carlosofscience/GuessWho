@@ -43,7 +43,7 @@ public class ChooseThemePage extends Page{
 		gbl_PlayPage.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gbl_PlayPage);
 		
-		ChooseThemeLabel = new JLabel("Choose Theme: using \""+controller.currentGameTheme.themeName+"\"");
+		ChooseThemeLabel = new JLabel("Choose Theme:");
 		GridBagConstraints gbc_ChooseThemeLabel = new GridBagConstraints();
 		gbc_ChooseThemeLabel.anchor = GridBagConstraints.NORTH;
 		gbc_ChooseThemeLabel.insets = new Insets(0, 0, 5, 0);

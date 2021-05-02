@@ -70,5 +70,8 @@ public class GuessWho {
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//loading default theme
+		container.gameController.setGameTheme("Classic GuessWho");
 	}
 }

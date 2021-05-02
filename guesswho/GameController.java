@@ -7,12 +7,13 @@ public class GameController {
 	
 	public GameTheme currentGameTheme;
 	public ArrayList<Page> subcriberPages;
-	public HashMap<String, ArrayList<Page>> subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
+	public HashMap<String, ArrayList<Page>> subcriberPagesByTopic;
 	public GameSession gameSession;
 	
 	GameController(){
-		currentGameTheme = new GameTheme("Classic GuessWho");
+		subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
 		subcriberPages = new ArrayList<Page>();
+		currentGameTheme = new GameTheme("Classic GuessWho");
 		gameSession = new GameSession(currentGameTheme.getCharacters().get(1));
 		//load all themes
 	}
@@ -33,19 +34,26 @@ public class GameController {
 	
 	public void notifySubscribers(String topic) {
 		System.out.println("notifySubscribers fired: subscribers("+subcriberPages.size()+")");
-		
+		//prevent duplicate updates
+		ArrayList<Page> updatedPages = new ArrayList<Page>();
 		//check if is a broadcast message
 		if(topic.equals("BROADCAST")) {
 			for (String key : subcriberPagesByTopic.keySet()) {
-				subcriberPagesByTopic.get(key);
-				for(Page page: subcriberPagesByTopic.get(topic)) {
-					page.update();
+				
+				for(Page page: subcriberPagesByTopic.get(key)) {
+					if(!updatedPages.contains(page)) {
+						page.update();
+						updatedPages.add(page);
+					}
 				}
 			}
 		}else if (subcriberPagesByTopic.get(topic)!=null) {
 			//notify subscribers of specific topic
 			for(Page page: subcriberPagesByTopic.get(topic)) {
-				page.update();
+				if(!updatedPages.contains(page)) {
+					page.update();
+					updatedPages.add(page);
+				}
 			}			
 		}
 
@@ -60,6 +68,7 @@ public class GameController {
 	}
 	
 	public void addSubscriber(Page page, String topic) {
+		System.out.println("added new Subscriber, subscribers are: "+subcriberPagesByTopic.keySet());
 		ArrayList<Page> pages = (subcriberPagesByTopic.get(topic) == null)? new ArrayList<Page>(): subcriberPagesByTopic.get(topic); 
 		pages.add(page);
 		subcriberPagesByTopic.put(topic, pages);

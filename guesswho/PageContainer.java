@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class PageContainer extends JPanel {
 	
-	private GameController gameController;
+	public GameController gameController;
 	private CardLayout layout;
 	private ArrayList<String> pages;
 	private ArrayList<String> links;
@@ -59,8 +59,9 @@ public class PageContainer extends JPanel {
 			
 			System.out.println("Adding link to : "+link.getLink() );
 		}
-		page.setPreferredSize(getPreferredSize());
 		add(page, page.getName());
+		page.pageAdded();//notify page is added
+		page.setPreferredSize(getPreferredSize());
 		
 		//display whatever last page was added
 		show(page.getName());

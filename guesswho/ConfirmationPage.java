@@ -65,8 +65,10 @@ public class ConfirmationPage extends Page{
 		confirmationBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+            	controller.gameSession.playerWins = controller.gameSession.getMisteryCharacter().getName().equals(controller.gameSession.getSuspectCharacter().getName());
             	controller.notifySubscribers("ResultsPage");
-            	System.out.println("here make sure controller knows that is a confirm on the selected character..");
+
+            	System.out.println("eval winner and going to ResultsPage");
             }
         });
 		

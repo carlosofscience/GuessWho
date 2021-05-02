@@ -40,7 +40,11 @@ public class Page extends JPanel{
 	ArrayList<PageLink> getLinks(){
 		return links;
 	}
-
+	
+	public void pageAdded() {
+		
+	}
+	
 	//to be updated by publisher controller
 	public void update() {
 		
