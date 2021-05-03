@@ -196,7 +196,7 @@ public class PlayPage extends Page{
                 		gameStatus.setText("Wrong feature try again...");
                 	}
                 	//update score
-                	rightGuesses.setText("Rigth: "+controller.gameSession.getCorrectGuesses());
+                	rightGuesses.setText("Right: "+controller.gameSession.getCorrectGuesses());
                 	wrongGuesses.setText("Wrong: "+controller.gameSession.getIncorrectGuesses());
                 }else {
                 	gameStatus.setText("That's not a valid feature!");

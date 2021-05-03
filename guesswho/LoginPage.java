@@ -24,6 +24,8 @@ public class LoginPage extends Page{
 		setName("LoginPage");
 		
 		PageLink loginBtn = new PageLink("Login");
+		loginBtn.setBackground(new Color(50,50,50));
+		loginBtn.setForeground(Color.WHITE);
 		loginBtn.setLink("MainMenuPage");
 		loginBtn.setEnabled(false);
 		loginBtn.setPreferredSize(new Dimension(100,40));
