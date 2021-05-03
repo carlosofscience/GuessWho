@@ -3,6 +3,7 @@ package guesswho;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -26,7 +27,8 @@ import javax.swing.border.LineBorder;
 
 public class ChooseThemePage extends Page{
 	
-	JLabel ChooseThemeLabel;
+	JLabel chooseThemeLabel;
+	JPanel mainContainer, dynamicContainer;
 	
 	ChooseThemePage(){
 
@@ -36,21 +38,36 @@ public class ChooseThemePage extends Page{
 			2- read directory names display the window as buttons
 		*/
 		setName("ChooseThemePage");
-		GridBagLayout gbl_PlayPage = new GridBagLayout();
-		gbl_PlayPage.columnWidths = new int[]{180, 105, 0};
-		gbl_PlayPage.rowHeights = new int[]{30, 30,40,40,40,40,40,0, 0};
-		gbl_PlayPage.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_PlayPage.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gbl_PlayPage);
+		JPanel paddingTop =  new JPanel();
+		paddingTop.setPreferredSize(new Dimension(900, 150)); 
+		paddingTop.setBackground(Color.white);
+		chooseThemeLabel = new JLabel("Choose a game theme", SwingConstants.CENTER);
+		chooseThemeLabel.setPreferredSize(new Dimension(900,40));
+		chooseThemeLabel.setFont(new Font("MS Sans Serif", Font.PLAIN, 24));
+		mainContainer = new JPanel();
+		dynamicContainer = new JPanel();
+		mainContainer.setPreferredSize(new Dimension(900, 400)); 
+		mainContainer.setBackground(Color.white);
+		mainContainer.add(dynamicContainer);
+
+		loadThemes();
+        
+		PageLink MainMenuPageLink = new PageLink("Back");
+		MainMenuPageLink.setLink("MainMenuPage");
 		
-		ChooseThemeLabel = new JLabel("Choose Theme:");
-		GridBagConstraints gbc_ChooseThemeLabel = new GridBagConstraints();
-		gbc_ChooseThemeLabel.anchor = GridBagConstraints.NORTH;
-		gbc_ChooseThemeLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_ChooseThemeLabel.gridx = 1;
-		gbc_ChooseThemeLabel.gridy = 1;
-		add(ChooseThemeLabel, gbc_ChooseThemeLabel);
 		
+		add(paddingTop);
+		add(chooseThemeLabel);
+		add(mainContainer);
+        addLink(MainMenuPageLink );
+	}
+	
+	public void loadThemes() {
+		
+		int containerHeight = 400;
+		mainContainer.remove(dynamicContainer);
+
+		dynamicContainer = new JPanel();
 
 		//theme options
 		File f = new File("./src/themes");
@@ -59,9 +76,13 @@ public class ChooseThemePage extends Page{
 			
 			JButton themeBtn = new PageLink(themeDirName);
 			JLabel btn_label = new JLabel();
-			btn_label.setIcon(getIconByThemeName(themeDirName));
+			JPanel item = new JPanel();
+			item.setPreferredSize(new Dimension(900, 80)); 
+			item.setBackground(Color.WHITE);
+			btn_label.setIcon(new Icon("./src/themes/"+themeDirName+"/imgs/THEME_ICON.PNG", 100, 80));
+			btn_label.setFont(new Font("MS Sans Serif", Font.PLAIN, 20));
 
-			themeBtn.setPreferredSize(new Dimension(300, 40));
+			themeBtn.setPreferredSize(new Dimension(400, 80));
 			themeBtn.setBorder(new LineBorder(Color.GRAY, 1));
 			themeBtn.setHorizontalTextPosition(SwingConstants.RIGHT);
 			themeBtn.add(btn_label);
@@ -73,32 +94,21 @@ public class ChooseThemePage extends Page{
 					controller.setGameTheme(themeDirName);
 				}
 			});
-			
-			GridBagConstraints gbc_themeBtn = new GridBagConstraints();
-			gbc_themeBtn.anchor = GridBagConstraints.NORTH;
-			gbc_themeBtn.gridx = 1;
-			gbc_themeBtn.gridy =  index;
-			index+=1;
-			
-	        add(themeBtn, gbc_themeBtn);
+			item.add(themeBtn);
+			dynamicContainer.add(item);
         }
 
-        
-		PageLink MainMenuPageLink = new PageLink("Back");
-		MainMenuPageLink.setLink("MainMenuPage");
-		MainMenuPageLink.setBackground(new Color(50,50,50));
-		MainMenuPageLink.setForeground(Color.WHITE);
-        GridBagConstraints gbc_MainMenuPageLink = new GridBagConstraints();
-        gbc_MainMenuPageLink.anchor = GridBagConstraints.NORTH;
-        gbc_MainMenuPageLink.gridx = 1;
-        gbc_MainMenuPageLink.gridy = ++index;
-        addLink(MainMenuPageLink, gbc_MainMenuPageLink);
+		mainContainer.setPreferredSize(new Dimension(900, containerHeight)); 
+		dynamicContainer.setPreferredSize(new Dimension(900, containerHeight)); 
+		dynamicContainer.setBackground(Color.white);
+		mainContainer.add(dynamicContainer);
 	}
 	
 	public void update() {
-		if(ChooseThemeLabel != null)
+		if(chooseThemeLabel != null)
 		{
-			ChooseThemeLabel.setText("Choose Theme: using \""+controller.currentGameTheme.themeName+"\"");
+			chooseThemeLabel.setText("Using game theme: \""+controller.currentGameTheme.themeName+"\"");
+			loadThemes();
 		}
 	}
 	

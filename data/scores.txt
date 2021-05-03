@@ -1,3 +1,7 @@
+Carlos Sandoval
+0
+0
+true
 Carlos Sandovals
 0
 1
@@ -9,4 +13,8 @@ true
 Magic C
 2
 0
+true
+asdsa
+3
+1
 true

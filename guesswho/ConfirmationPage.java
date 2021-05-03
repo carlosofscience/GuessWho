@@ -30,20 +30,26 @@ public class ConfirmationPage extends Page{
 	JLabel confirmationMsg; 
 	
 	ConfirmationPage(){
+		
+		
 		characterGridContainer = new JPanel();
-		characterGridContainer.setBackground(Color.blue);
+		characterGridContainer.setBackground(Color.WHITE);
 		characterGridContainer.setPreferredSize(new Dimension(900, 300));       
 		
 		chosenCharacterContainer =  new JPanel();
 		setName("ConfirmationPage");    
 
+        JPanel paddingTop = new JPanel();
+        paddingTop.setPreferredSize(new Dimension(900, 80));  
+        paddingTop.setBackground(Color.WHITE);
         JPanel confirmationMsgContainer = new JPanel();
-        confirmationMsgContainer.setBackground(Color.red);
+        confirmationMsgContainer.setBackground(Color.WHITE);
         confirmationMsgContainer.setPreferredSize(new Dimension(900, 100));
       
 
 
         //adding containers
+        add(paddingTop);
         add(characterGridContainer);
         add(confirmationMsgContainer);
         
@@ -84,16 +90,16 @@ public class ConfirmationPage extends Page{
 		
         //get image
         JLabel characterImg = new JLabel();
-        characterImg.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+//        characterImg.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
 		Icon image = controller.gameSession.getSuspectCharacter().getImage();
 		//set size in this current line (if needed)
-		image.resize(100, 180);
+		image.resize(139, 250);
 		characterImg.setIcon(image);
 		
 		//create new updated container 
 		chosenCharacterContainer = new JPanel();
-        chosenCharacterContainer.setBackground(Color.yellow);
-        chosenCharacterContainer.setPreferredSize(new Dimension(600, 250));    
+        chosenCharacterContainer.setBackground(new Color(50,50,50));
+        chosenCharacterContainer.setPreferredSize(new Dimension(600, 260));    
 		chosenCharacterContainer.add(characterImg);
 		confirmationMsg.setText("Are you sure \""+controller.gameSession.getSuspectCharacter().getName()+"\" is the right character? (you only have 1 try)");
 		//add the new updated container

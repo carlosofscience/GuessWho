@@ -189,7 +189,7 @@ public class PlayPage extends Page{
             	String feature = askInput.getText();
                 System.out.println("The entered text is: " + feature);
                 //check if feature is valid
-                if(controller.isValidFeature(feature)) {
+                if(feature.length() > 0 && controller.isValidFeature(feature)) {
                 	if(controller.gameSession.isCharacterFeature(feature)) {
                 		gameStatus.setText("You guessed right!");
                 	}else{

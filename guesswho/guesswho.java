@@ -45,6 +45,8 @@ public class GuessWho {
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setBounds(400, 150, WIDHT, HEIGHT);
+		frame.setResizable(false);
+		frame.setBackground(Color.WHITE);
 		container = new PageContainer();
 		container.setPreferredSize(new Dimension(WIDHT, HEIGHT-NAV_BAR_HEIGHT));
 
@@ -66,7 +68,7 @@ public class GuessWho {
 		container.addPage(playPage);
 		container.addPage(mainMenu);
 		container.addPage(loginPage);
-		
+
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

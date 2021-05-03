@@ -21,20 +21,25 @@ public class ResultsPage extends Page
 	ResultsPage(){
 		setName("ResultsPage");
 		MainContainer = new JPanel();
-		MainContainer.setBackground(Color.red);
-		MainContainer.setPreferredSize(new Dimension(900, 600)); 
+		MainContainer.setBackground(Color.WHITE);
+		MainContainer.setPreferredSize(new Dimension(900, 500)); 
 
 		pageContainer = new JPanel();
-		pageContainer.setBackground(Color.blue);
-		pageContainer.setPreferredSize(new Dimension(900, 600)); 
+		pageContainer.setBackground(Color.WHITE);
+		pageContainer.setPreferredSize(new Dimension(900, 500)); 
 	
 		PageLink mainMenuLink = new PageLink("Main Page");
 		mainMenuLink.setBackground(new Color(50,50,50));
 		mainMenuLink.setForeground(Color.WHITE);
 		mainMenuLink.setLink("MainMenuPage");
 		
+		JPanel paddinTop = new JPanel();
+		paddinTop.setBackground(Color.WHITE);
+		paddinTop.setPreferredSize(new Dimension(900, 80)); 
+		
 		MainContainer.add(pageContainer);
 		
+		add(paddinTop);		
 		add(MainContainer);
 		addLink(mainMenuLink);
 		
@@ -64,21 +69,29 @@ public class ResultsPage extends Page
 		JLabel infoMsg = new JLabel("you guessed wrong, you LOST the match...", SwingConstants.CENTER);
 		
 		JPanel titlesPanel = new JPanel(), ImagesPanel = new JPanel(), namesPanel = new JPanel();
+		titlesPanel.setBackground(Color.WHITE);
+		ImagesPanel.setBackground(Color.WHITE);
+		namesPanel.setBackground(Color.WHITE);
+
 		titlesPanel.setPreferredSize(new Dimension(900, 40));
 		ImagesPanel.setPreferredSize(new Dimension(900, 274));
 		namesPanel.setPreferredSize(new Dimension(900, 40));
 		JLabel mysteryImage = new JLabel(),  suspectImage = new JLabel();
 		JLabel misteryName = new JLabel(controller.gameSession.getMisteryCharacter().getName(),  SwingConstants.CENTER);
 		JLabel suspectName = new JLabel(controller.gameSession.getSuspectCharacter().getName(),  SwingConstants.CENTER);
+		misteryName.setBackground(Color.WHITE);
+		suspectName.setBackground(Color.WHITE);
 		JLabel misteryTitle = new JLabel("Mystery Character",  SwingConstants.CENTER);
 		JLabel suspectTitle = new JLabel("Suspect Character",  SwingConstants.CENTER);
+		misteryTitle.setBackground(Color.WHITE);
+		suspectTitle.setBackground(Color.WHITE);
 
 		infoMsg.setPreferredSize(new Dimension(900, 40));
 		misteryTitle.setPreferredSize(new Dimension(150, 30));
 		suspectTitle.setPreferredSize(new Dimension(150, 30));
 		misteryName.setPreferredSize(new Dimension(150, 30));
 		suspectName.setPreferredSize(new Dimension(150, 30));
-		suspectName.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+		suspectName.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
 
 		Icon misteryIcon = controller.gameSession.getMisteryCharacter().getImage();
 		Icon suspectIcon = controller.gameSession.getSuspectCharacter().getImage();
@@ -111,12 +124,12 @@ public class ResultsPage extends Page
 		}else {
 			pageContainer = getLooserPanel();
 		}
-		pageContainer.setBackground(Color.yellow);
+		pageContainer.setBackground(Color.WHITE);
 		//add link to page the bottom of page container here
 		
 		MainContainer.add(pageContainer);
-		pageContainer.setPreferredSize(new Dimension(900, 600)); 
-		MainContainer.setPreferredSize(new Dimension(900, 600)); 
+		pageContainer.setPreferredSize(new Dimension(900, 500)); 
+		MainContainer.setPreferredSize(new Dimension(900, 500)); 
 
 	}
 	

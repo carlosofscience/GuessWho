@@ -3,6 +3,7 @@ package guesswho;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -22,7 +23,6 @@ public class LoginPage extends Page{
 	
 	LoginPage(){
 		setName("LoginPage");
-		
 		PageLink loginBtn = new PageLink("Login");
 		loginBtn.setBackground(new Color(50,50,50));
 		loginBtn.setForeground(Color.WHITE);
@@ -32,6 +32,8 @@ public class LoginPage extends Page{
 
 		JLabel title = new JLabel("Login", SwingConstants.CENTER);
 		title.setPreferredSize(new Dimension(900,40));
+		title.setFont(new Font("MS Sans Serif", Font.PLAIN, 24));
+
 		JPanel paddingTop = new JPanel();
 		paddingTop.setPreferredSize(new Dimension(900,250));
 		paddingTop.setBackground(Color.WHITE);
