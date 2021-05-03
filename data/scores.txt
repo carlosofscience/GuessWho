@@ -2,15 +2,3 @@ Carlos Sandovals
 0
 1
 true
-Carlos Sandoval
-0
-2
-true
-Carlos Sandoval
-1
-2
-true
-Carlos Sandoval
-4
-4
-true

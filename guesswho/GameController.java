@@ -42,8 +42,10 @@ public class GameController {
 		if (!skipEvalandSave) {
 			//add score to scores
 			scoreboard.scores.add(new GameScore(userName, gameSession.getCorrectGuesses(), gameSession.getIncorrectGuesses(), gameSession.evalMatch()));
+			
 			//sorts and store scores in file
 			scoreboard.saveScores();
+			System.out.println("Scores saved " + scoreboard.scores);
 		}
 
 		//destroy session
