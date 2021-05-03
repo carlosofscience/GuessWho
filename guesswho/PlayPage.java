@@ -60,7 +60,10 @@ public class PlayPage extends Page{
 		hiddenConfirmationPageLink.setLink("ConfirmationPage");
 		hiddenConfirmationPageLink.setVisible(false);
 		addLink(hiddenConfirmationPageLink);
-		JButton exitGameSessionBtn= new JButton("Exit Match");
+		
+		PageLink exitGameSessionBtn= new PageLink("Exit Match");
+		exitGameSessionBtn.setLink("MainMenuPage");
+		this.registerLink(exitGameSessionBtn);
         JLabel gameStatus = new JLabel("Guess a feature");
         JLabel rightGuesses = new JLabel("Right: 0");
         JLabel wrongGuesses = new JLabel("Wrong: 0");
@@ -149,6 +152,14 @@ public class PlayPage extends Page{
 			public void removeUpdate(DocumentEvent e) {
 			}
         });
+        
+        exitGameSessionBtn.addActionListener(new ActionListener() {
+        	@Override
+            public void actionPerformed(ActionEvent event) {
+        		controller.endGameSession();
+        	}
+        });
+        
         askBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
@@ -284,6 +295,7 @@ public class PlayPage extends Page{
 				image.resize(imageWidth, (int)(imageWidth * 1.8));
 				imageContainer.setIcon(image);
 				imageContainer.setBounds(x*imageWidth, y*imageHeight, imageWidth, imageHeight);
+				
 				charactersContainer.add(imageContainer);
 			}
 		}

@@ -98,7 +98,7 @@ public class ConfirmationPage extends Page{
 	
 	public void update(){
 		System.out.println("update from confirmation page");
-		if (controller.gameSession.getSuspectCharacter() != null) {
+		if (controller.gameSession != null && controller.gameSession.getSuspectCharacter() != null) {
 			System.out.println("loadSuspectCharacter :0");
 			loadSuspectCharacter();
 

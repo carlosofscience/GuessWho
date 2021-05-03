@@ -14,7 +14,6 @@ public class GameController {
 		subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
 		subcriberPages = new ArrayList<Page>();
 		currentGameTheme = new GameTheme("Classic GuessWho");
-		gameSession = new GameSession(currentGameTheme.getCharacters().get(1));
 		//load all themes
 	}
 	
@@ -23,7 +22,17 @@ public class GameController {
 	}
 	
 	public void startGameSession() {
+		gameSession = new GameSession(currentGameTheme.getCharacters().get(1));
 		System.out.println("mistery character: "+gameSession.getMisteryCharacter());
+	}
+	
+	public void registerGameSession() {
+		System.out.println("registerGameSession() save on top 5 scores");
+	}
+	
+	public void endGameSession() {
+		gameSession = null;
+		System.out.println("Ending game session: ");
 	}
 	
 	public void setGameTheme(String themeDirName) {
