@@ -29,6 +29,8 @@ public class ResultsPage extends Page
 		pageContainer.setPreferredSize(new Dimension(900, 600)); 
 	
 		PageLink mainMenuLink = new PageLink("Main Page");
+		mainMenuLink.setBackground(new Color(50,50,50));
+		mainMenuLink.setForeground(Color.WHITE);
 		mainMenuLink.setLink("MainMenuPage");
 		
 		MainContainer.add(pageContainer);
