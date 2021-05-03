@@ -32,6 +32,8 @@ public class ScoreboardPage extends Page{
 		
 		MainMenuPageLink.setLink("MainMenuPage");
 		addLink(MainMenuPageLink);
+		MainMenuPageLink.setBackground(new Color(50,50,50));
+		MainMenuPageLink.setForeground(Color.WHITE);
 				
 	}
 	

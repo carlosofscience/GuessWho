@@ -1,5 +1,6 @@
 package guesswho;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -72,6 +73,8 @@ public class HowToPlayPage extends Page
 		
 		PageLink MainMenuPageLink = new PageLink("Back");
 		MainMenuPageLink.setLink("MainMenuPage");
+		MainMenuPageLink.setBackground(new Color(50,50,50));
+		MainMenuPageLink.setForeground(Color.WHITE);
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
 		gbc_btnNewButton_4.anchor = GridBagConstraints.NORTH;
 		gbc_btnNewButton_4.insets = new Insets(0, 0, 5, 0);

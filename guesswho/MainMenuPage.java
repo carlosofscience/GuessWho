@@ -1,5 +1,6 @@
 package guesswho;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -36,6 +37,8 @@ public class MainMenuPage extends Page{
 		
 		PageLink PlayPageLink = new PageLink("Play");
 		PlayPageLink.setLink("PlayPage");
+		PlayPageLink.setBackground(new Color(50,50,50));
+		PlayPageLink.setForeground(Color.WHITE);
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.anchor = GridBagConstraints.NORTH;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
@@ -45,6 +48,8 @@ public class MainMenuPage extends Page{
 		
 		PageLink ChooseThemePageLink = new PageLink("Choose Theme");
 		ChooseThemePageLink.setLink("ChooseThemePage");
+		ChooseThemePageLink.setBackground(new Color(50,50,50));
+		ChooseThemePageLink.setForeground(Color.WHITE);
 
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.anchor = GridBagConstraints.NORTH;
@@ -55,6 +60,8 @@ public class MainMenuPage extends Page{
 		
 		PageLink HowToPlayPageLink = new PageLink("How to play");
 		HowToPlayPageLink.setLink("HowToPlayPage");
+		HowToPlayPageLink.setBackground(new Color(50,50,50));
+		HowToPlayPageLink.setForeground(Color.WHITE);
 
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.anchor = GridBagConstraints.NORTH;
@@ -65,6 +72,8 @@ public class MainMenuPage extends Page{
 		
 		PageLink ScoreBoardPageLink = new PageLink("Scoreboard");
 		ScoreBoardPageLink.setLink("ScoreboardPage");
+		ScoreBoardPageLink.setBackground(new Color(50,50,50));
+		ScoreBoardPageLink.setForeground(Color.WHITE);
 		GridBagConstraints gbc_showScoreBoardBtn = new GridBagConstraints();
 		gbc_showScoreBoardBtn.anchor = GridBagConstraints.NORTH;
 		gbc_showScoreBoardBtn.gridx = 1;

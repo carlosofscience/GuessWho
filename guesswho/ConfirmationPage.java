@@ -50,8 +50,12 @@ public class ConfirmationPage extends Page{
         confirmationMsg = new JLabel("Are you sure this is the right character? (you only have 1 try)");
         
 		PageLink playPageLink = new PageLink("Discard");
+		playPageLink.setBackground(new Color(50,50,50));
+		playPageLink.setForeground(Color.WHITE);
 		playPageLink.setLink("PlayPage");
-		PageLink confirmationBtn= new PageLink("Confirm");	
+		PageLink confirmationBtn= new PageLink("Confirm");
+		confirmationBtn.setBackground(new Color(50,50,50));
+		confirmationBtn.setForeground(Color.WHITE);
 		confirmationBtn.setLink("ResultsPage");
         
 		//adding components to layout containers

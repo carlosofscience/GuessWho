@@ -63,6 +63,8 @@ public class PlayPage extends Page{
 		addLink(hiddenConfirmationPageLink);
 		
 		PageLink exitGameSessionBtn= new PageLink("Exit Match");
+		exitGameSessionBtn.setBackground(new Color(50,50,50));
+		exitGameSessionBtn.setForeground(Color.WHITE);
 		exitGameSessionBtn.setLink("MainMenuPage");
 		this.registerLink(exitGameSessionBtn);
         gameStatus = new JLabel("Guess a feature");
@@ -76,7 +78,11 @@ public class PlayPage extends Page{
         
         
 		JButton askBtn = new JButton("Ask Feature");
+		askBtn.setBackground(new Color(50,50,50));
+		askBtn.setForeground(Color.WHITE);
 		JButton guessBtn = new JButton("Final Guess");
+		guessBtn.setBackground(new Color(50,50,50));
+		guessBtn.setForeground(Color.WHITE);
 		JButton[] featureSuggestionBtns = new JButton[4];
 		JButton[] namesSuggestionBtns = new JButton[4];
 		

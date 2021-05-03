@@ -65,6 +65,8 @@ public class ChooseThemePage extends Page{
 			themeBtn.setBorder(new LineBorder(Color.GRAY, 1));
 			themeBtn.setHorizontalTextPosition(SwingConstants.RIGHT);
 			themeBtn.add(btn_label);
+			themeBtn.setBackground(new Color(50,50,50));
+			themeBtn.setForeground(Color.WHITE);
 			
 			themeBtn.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
@@ -84,6 +86,8 @@ public class ChooseThemePage extends Page{
         
 		PageLink MainMenuPageLink = new PageLink("Back");
 		MainMenuPageLink.setLink("MainMenuPage");
+		MainMenuPageLink.setBackground(new Color(50,50,50));
+		MainMenuPageLink.setForeground(Color.WHITE);
         GridBagConstraints gbc_MainMenuPageLink = new GridBagConstraints();
         gbc_MainMenuPageLink.anchor = GridBagConstraints.NORTH;
         gbc_MainMenuPageLink.gridx = 1;
