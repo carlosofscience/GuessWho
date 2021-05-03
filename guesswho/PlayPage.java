@@ -28,13 +28,14 @@ public class PlayPage extends Page{
 	JPanel characterGridContainer;
 	JPanel charactersContainer;
 	PageLink hiddenConfirmationPageLink;
+    JLabel gameStatus, rightGuesses, wrongGuesses;
 	
 	PlayPage(){
 		charactersContainer = new JPanel();
 		setName("PlayPage");
 
         JPanel headerContainer = new JPanel();
-        headerContainer.setBackground(Color.blue);
+        headerContainer.setBackground(Color.white);
         headerContainer.setPreferredSize(new Dimension(900, 30));        
         characterGridContainer = new JPanel();
         characterGridContainer.setBackground(Color.blue);
@@ -64,9 +65,9 @@ public class PlayPage extends Page{
 		PageLink exitGameSessionBtn= new PageLink("Exit Match");
 		exitGameSessionBtn.setLink("MainMenuPage");
 		this.registerLink(exitGameSessionBtn);
-        JLabel gameStatus = new JLabel("Guess a feature");
-        JLabel rightGuesses = new JLabel("Right: 0");
-        JLabel wrongGuesses = new JLabel("Wrong: 0");
+        gameStatus = new JLabel("Guess a feature");
+        rightGuesses = new JLabel("Right: 0");
+        wrongGuesses = new JLabel("Wrong: 0");
 		
         JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
         guessInput.setBounds(20,0, 600,60); 
@@ -257,6 +258,7 @@ public class PlayPage extends Page{
 	
 	//called from update()
 	private void displayThemeIcons(){
+		
 		//this code calculates best rectangle grid
 		int numOfCharacters = controller.currentGameTheme.getCharacters().size();
 		int squareRoot = (int) Math.ceil(Math.sqrt(numOfCharacters));
@@ -306,6 +308,11 @@ public class PlayPage extends Page{
 	} 
 	
 	public void update() {
+		System.out.println("PLayPage Updated with update()");
+		//udpate labels
+        gameStatus.setText("Guess a feature");
+        rightGuesses.setText("Right: 0");
+        wrongGuesses.setText("Wrong: 0");
 		displayThemeIcons();
 	}
 }

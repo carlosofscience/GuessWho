@@ -1,0 +1,9 @@
+5 #max numbers of scores, every score are made of 3 lines
+userName #user name
+13 #right guesses
+5 #wrong guesses
+lost/win #user won or lost?
+userName #user name
+6 #right guesses
+15 #wrong guesses
+lost/win #user won or lost?

@@ -84,6 +84,7 @@ public class MainMenuPage extends Page{
             public void actionPerformed(ActionEvent event) {
             	//start game session on play
        	     	controller.startGameSession();
+       	     	controller.notifySubscribers("PlayPage");
        	     	System.out.println("game session started");
             }
         });
