@@ -35,10 +35,16 @@ public class GameController {
 	}
 	
 	public void endGameSession() {
-		//add score to scores
-		scoreboard.scores.add(new GameScore(userName, gameSession.getCorrectGuesses(), gameSession.getIncorrectGuesses(), gameSession.evalMatch()));
-		//sorts and store scores in file
-		scoreboard.saveScores();
+		endGameSession(true);
+	}
+	
+	public void endGameSession(boolean skipEvalandSave) {
+		if (!skipEvalandSave) {
+			//add score to scores
+			scoreboard.scores.add(new GameScore(userName, gameSession.getCorrectGuesses(), gameSession.getIncorrectGuesses(), gameSession.evalMatch()));
+			//sorts and store scores in file
+			scoreboard.saveScores();
+		}
 
 		//destroy session
 		gameSession = null;

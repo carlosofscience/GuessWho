@@ -71,9 +71,9 @@ public class PlayPage extends Page{
         rightGuesses = new JLabel("Right: 0");
         wrongGuesses = new JLabel("Wrong: 0");
 		
-        JTextField guessInput = new JTextField("Enter character name (1 try only)", 40);  
+        TextInput guessInput = new TextInput("Enter character name (1 try only)", 40);  
         guessInput.setBounds(20,0, 600,60); 
-        JTextField askInput = new JTextField("Enter feature to guess...", 40);  
+        TextInput askInput = new TextInput("Enter feature to guess...", 40);  
         askInput.setBounds(20,60, 600,60); 
         
         
@@ -163,7 +163,7 @@ public class PlayPage extends Page{
         exitGameSessionBtn.addActionListener(new ActionListener() {
         	@Override
             public void actionPerformed(ActionEvent event) {
-        		controller.endGameSession();
+        		controller.endGameSession(true);
         	}
         });
         

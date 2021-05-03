@@ -49,6 +49,7 @@ public class GuessWho {
 		container.setPreferredSize(new Dimension(WIDHT, HEIGHT-NAV_BAR_HEIGHT));
 
 		//add pages here TODO: remove passing controller, this is passed implicitly when added to container
+		LoginPage loginPage = new LoginPage();
 		MainMenuPage mainMenu = new MainMenuPage();
 		ScoreboardPage scoreboard = new ScoreboardPage();
 		PlayPage playPage = new PlayPage();	
@@ -66,7 +67,7 @@ public class GuessWho {
 		container.addPage(confirmationPage);
 		container.addPage(playPage);
 		container.addPage(mainMenu);
-
+		container.addPage(loginPage);
 		
 		frame.getContentPane().add(container, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
