@@ -56,5 +56,8 @@ public class GameSession {
 	public void setSuspectCharacter(GameCharacter suspectCharacter) {
 		this.suspectCharacter = suspectCharacter;
 	}	
-
+	
+	public boolean evalMatch() {
+		return misteryCharacter.getName().equals(suspectCharacter.getName());
+	}
 }

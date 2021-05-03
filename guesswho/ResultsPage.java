@@ -40,7 +40,9 @@ public class ResultsPage extends Page
 		mainMenuLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-            	controller.endGameSession();
+            	controller.endGameSession();//ends session and adds scores
+            	controller.scoreboard.saveScores();
+
             	System.out.println("detroying game session, going back to menu (save score here if any)");
             	//reloading theme to fix image size
             	controller.setGameTheme(controller.currentGameTheme.themeName);

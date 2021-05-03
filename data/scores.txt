@@ -1,12 +1,8 @@
-Carlos Capuz
-6
-9
-win
-Jason Harriz
-13
-24
-win
 Carlos Sandoval
-4
-5
-win
+0
+2
+true
+Carlos Sandoval
+1
+2
+true

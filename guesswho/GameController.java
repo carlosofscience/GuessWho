@@ -10,12 +10,14 @@ public class GameController {
 	public ArrayList<Page> subcriberPages;
 	public HashMap<String, ArrayList<Page>> subcriberPagesByTopic;
 	public GameSession gameSession;
+	public String userName;
 	
 	GameController(){
 		subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
 		subcriberPages = new ArrayList<Page>();
 		currentGameTheme = new GameTheme("Classic GuessWho");
 		scoreboard = new ScoreBoard();
+		userName = "Carlos Sandoval";
 		//load all themes
 	}
 	
@@ -33,6 +35,12 @@ public class GameController {
 	}
 	
 	public void endGameSession() {
+		//add score to scores
+		scoreboard.scores.add(new GameScore(userName, gameSession.getCorrectGuesses(), gameSession.getIncorrectGuesses(), gameSession.evalMatch()));
+		//sorts and store scores in file
+		scoreboard.saveScores();
+
+		//destroy session
 		gameSession = null;
 		System.out.println("Ending game session: ");
 	}
