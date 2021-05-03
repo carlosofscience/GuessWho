@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class GameController {
 	
 	public GameTheme currentGameTheme;
+	public ScoreBoard scoreboard;
 	public ArrayList<Page> subcriberPages;
 	public HashMap<String, ArrayList<Page>> subcriberPagesByTopic;
 	public GameSession gameSession;
@@ -14,6 +15,7 @@ public class GameController {
 		subcriberPagesByTopic = new HashMap<String, ArrayList<Page>>();
 		subcriberPages = new ArrayList<Page>();
 		currentGameTheme = new GameTheme("Classic GuessWho");
+		scoreboard = new ScoreBoard();
 		//load all themes
 	}
 	
@@ -40,6 +42,7 @@ public class GameController {
 		System.out.println("loaded theme: "+currentGameTheme.themeName);
 		notifySubscribers();
 	}
+	
 	
 	public void notifySubscribers(String topic) {
 		System.out.println("notifySubscribers fired: subscribers("+subcriberPages.size()+")");

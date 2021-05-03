@@ -81,4 +81,5 @@ public class ScoreboardPage extends Page
 		addLink(MainMenuPageLink, gbc_btnNewButton_4);
 				
 	}
+	
 }

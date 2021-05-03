@@ -1,13 +1,12 @@
-5
-Carlos Sandoval
-5
-8
-win
 Carlos Capuz
 6
-10
+9
 win
-Jason Harris
-7
-15
+Jason Harriz
+13
+24
+win
+Carlos Sandoval
+4
+5
 win

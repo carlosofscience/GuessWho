@@ -88,6 +88,16 @@ public class MainMenuPage extends Page{
        	     	System.out.println("game session started");
             }
         });
+		
+
+		ScoreBoardPageLink.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+            	//start game session on play
+       	     	controller.scoreboard.loadScores();
+       	     	controller.notifySubscribers("ScoreboardPage");
+            }
+        });
 
 	
 	}
