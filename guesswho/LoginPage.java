@@ -56,7 +56,7 @@ public class LoginPage extends Page{
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-        		if(userNameInput.getText().length() > 3) {
+        		if(userNameInput.getText().length() >= 3) {
         			loginBtn.setEnabled(true);
         		}else {
         			loginBtn.setEnabled(false);

@@ -57,9 +57,7 @@ public class GuessWho {
 		HowToPlayPage howToPlayPage = new HowToPlayPage();
 		ConfirmationPage confirmationPage = new ConfirmationPage();
 		ResultsPage resultsPage = new ResultsPage();
-		
-		playPage.setBackground(Color.green);
-	
+			
 		container.addPage(scoreboard);
 		container.addPage(ChooseThemePage);
 		container.addPage(howToPlayPage);

@@ -1,5 +1,6 @@
 package guesswho;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ public class Page extends JPanel{
 	Page(){
 		super();
 		links = new ArrayList<PageLink>();
+		this.setBackground(Color.white);
 	}
 	
 	public void addLink(PageLink link) {

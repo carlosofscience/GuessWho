@@ -29,6 +29,12 @@ public class TextInput extends JTextField{
         });
 	}
 	
+	public void setPlaceHolder(String placeholder) {
+		clear();
+		this.setText(placeholder);
+		hasBeenCleared = false;
+	}
+	
 	private void clear(){
 		this.setText("");
 	}

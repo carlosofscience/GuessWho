@@ -1,5 +1,7 @@
 package guesswho;
 
+import java.awt.Cursor;
+
 import javax.swing.JButton;
 
 public class PageLink extends JButton {
@@ -10,6 +12,7 @@ public class PageLink extends JButton {
 	
 	PageLink(String name){
 		super(name);
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 
 	void setLink(String link){

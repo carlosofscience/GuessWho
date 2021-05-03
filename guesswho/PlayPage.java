@@ -3,6 +3,7 @@ package guesswho;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -29,25 +30,25 @@ public class PlayPage extends Page{
 	JPanel charactersContainer;
 	PageLink hiddenConfirmationPageLink;
     JLabel gameStatus, rightGuesses, wrongGuesses;
-	
+    TextInput guessInput, askInput;
 	PlayPage(){
 		charactersContainer = new JPanel();
 		setName("PlayPage");
 
-        JPanel headerContainer = new JPanel();
+        JPanel headerContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         headerContainer.setBackground(Color.white);
-        headerContainer.setPreferredSize(new Dimension(900, 30));        
+        headerContainer.setPreferredSize(new Dimension(900, 35));        
         characterGridContainer = new JPanel();
-        characterGridContainer.setBackground(Color.blue);
+        characterGridContainer.setBackground(Color.white);
         characterGridContainer.setPreferredSize(new Dimension(900, 600));
-        JPanel suggestionContainer = new JPanel();
-        suggestionContainer.setBackground(Color.yellow);
+        JPanel suggestionContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        suggestionContainer.setBackground(Color.white);
         suggestionContainer.setPreferredSize(new Dimension(900, 30));
-        JPanel askFeatureContainer = new JPanel();
+        JPanel askFeatureContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         askFeatureContainer.setBackground(Color.white);
         askFeatureContainer.setPreferredSize(new Dimension(900, 30));
-        JPanel guessContainer = new JPanel();
-        guessContainer.setBackground(Color.red);
+        JPanel guessContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        guessContainer.setBackground(Color.white);
         guessContainer.setPreferredSize(new Dimension(900, 30));
 
         
@@ -64,32 +65,43 @@ public class PlayPage extends Page{
 		
 		PageLink exitGameSessionBtn= new PageLink("Exit Match");
 		exitGameSessionBtn.setBackground(new Color(50,50,50));
+		exitGameSessionBtn.setPreferredSize(new Dimension(100,40));
 		exitGameSessionBtn.setForeground(Color.WHITE);
 		exitGameSessionBtn.setLink("MainMenuPage");
-		this.registerLink(exitGameSessionBtn);
-        gameStatus = new JLabel("Guess a feature");
-        rightGuesses = new JLabel("Right: 0");
-        wrongGuesses = new JLabel("Wrong: 0");
 		
-        TextInput guessInput = new TextInput("Enter character name (1 try only)", 40);  
-        guessInput.setBounds(20,0, 600,60); 
-        TextInput askInput = new TextInput("Enter feature to guess...", 40);  
-        askInput.setBounds(20,60, 600,60); 
+		this.registerLink(exitGameSessionBtn);
+        gameStatus = new JLabel("Guess a feature", SwingConstants.CENTER);
+        gameStatus.setPreferredSize(new Dimension(500,40));
+        rightGuesses = new JLabel("Right: 0", SwingConstants.CENTER);
+        rightGuesses.setPreferredSize(new Dimension(100,40));
+        wrongGuesses = new JLabel("Wrong: 0", SwingConstants.CENTER);
+        wrongGuesses.setPreferredSize(new Dimension(100,40));
+		
+        guessInput = new TextInput("Enter character name", 40);  
+        guessInput.setPreferredSize(new Dimension(600, 30));
+        askInput = new TextInput("Enter feature to guess...", 40);  
+        askInput.setPreferredSize(new Dimension(600, 30));
         
         
 		JButton askBtn = new JButton("Ask Feature");
 		askBtn.setBackground(new Color(50,50,50));
-		askBtn.setForeground(Color.WHITE);
+		askBtn.setForeground(Color.WHITE); 
+		askBtn.setPreferredSize(new Dimension(150, 30));
 		JButton guessBtn = new JButton("Final Guess");
 		guessBtn.setBackground(new Color(50,50,50));
-		guessBtn.setForeground(Color.WHITE);
+		guessBtn.setForeground(Color.WHITE); 
+		guessBtn.setPreferredSize(new Dimension(150, 30));
 		JButton[] featureSuggestionBtns = new JButton[4];
 		JButton[] namesSuggestionBtns = new JButton[4];
 		
 		for(int i=0; i < featureSuggestionBtns.length; i++ ) {
 			final int index = i;
-			featureSuggestionBtns[i] = new JButton("");
+			featureSuggestionBtns[i] = new PageLink("");
 			featureSuggestionBtns[i].setVisible(false);
+			featureSuggestionBtns[i].setBorder(new LineBorder(Color.WHITE, 5));
+			featureSuggestionBtns[i].setPreferredSize(new Dimension(150, 34));
+			featureSuggestionBtns[i].setBackground(new Color(80,80,80));
+			featureSuggestionBtns[i].setForeground(Color.WHITE);
 	        suggestionContainer.add(featureSuggestionBtns[i]);
 	        featureSuggestionBtns[i].addActionListener(new ActionListener() {
 	        	@Override
@@ -101,8 +113,12 @@ public class PlayPage extends Page{
 		}
 		for(int i=0; i < namesSuggestionBtns.length; i++ ) {
 			final int index = i;
-			namesSuggestionBtns[i] = new JButton("");
+			namesSuggestionBtns[i] = new PageLink("");
 			namesSuggestionBtns[i].setVisible(false);
+			namesSuggestionBtns[i].setBorder(new LineBorder(Color.WHITE, 5));
+			namesSuggestionBtns[i].setPreferredSize(new Dimension(150, 34));
+			namesSuggestionBtns[i].setBackground(new Color(80,80,80));
+			namesSuggestionBtns[i].setForeground(Color.WHITE);
 	        suggestionContainer.add(namesSuggestionBtns[i]);
 	        namesSuggestionBtns[i].addActionListener(new ActionListener() {
 	        	@Override
@@ -281,7 +297,8 @@ public class PlayPage extends Page{
 		smallSide = (bigSide < smallSide)? bigSide: smallSide;//check for smallest
 		bigSide = temp;//set biggest to biggest
 		
-		int imageWidth = Math.round(WIDTH/bigSide)-50, imageHeight= Math.round(HEIGHT/smallSide);
+		int imageWidth = Math.round(WIDTH/bigSide)-80;
+		int imageHeight= Math.round((int)(imageWidth * 1.8));//Math.round(HEIGHT/smallSide)-60;
 
 		
 		//remove container if is added
@@ -289,7 +306,7 @@ public class PlayPage extends Page{
 		
 		//create new container, new layout
 		charactersContainer = new JPanel();
-		charactersContainer.setBackground(Color.red);
+		charactersContainer.setBackground(Color.WHITE);
 		charactersContainer.setPreferredSize(new Dimension(900, 600));
 		//add images
 		//creates new grid and adds it to the charactersContainer
@@ -313,12 +330,15 @@ public class PlayPage extends Page{
 //		return new Icon[bigSide][smallSide];
 	} 
 	
+	
 	public void update() {
 		System.out.println("PLayPage Updated with update()");
-		//udpate labels
+		//update labels
         gameStatus.setText("Guess a feature");
         rightGuesses.setText("Right: 0");
         wrongGuesses.setText("Wrong: 0");
+        guessInput.setPlaceHolder("Enter character name");
+        askInput.setPlaceHolder("Enter feature to guess...");
 		displayThemeIcons();
 	}
 }
