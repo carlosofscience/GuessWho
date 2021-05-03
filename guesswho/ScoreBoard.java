@@ -3,12 +3,21 @@ package guesswho;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ScoreBoard {
 
 	private ArrayList<GameScore> scores;
 	
+	public ArrayList<GameScore> getScores() {
+		return scores;
+	}
+
+	public void setScores(ArrayList<GameScore> scores) {
+		this.scores = scores;
+	}
+
 	ScoreBoard(){
 		scores = new ArrayList<GameScore>();
 		loadScores();
@@ -61,7 +70,8 @@ public class ScoreBoard {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
-		  System.out.println("Finished importing scores");		  
+		  Collections.sort(scores);
+		  System.out.println("Finished importing scores adn sorting ");		  
 	}
 	
 	
