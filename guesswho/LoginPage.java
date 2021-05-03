@@ -34,8 +34,11 @@ public class LoginPage extends Page{
 		title.setPreferredSize(new Dimension(900,40));
 		JPanel paddingTop = new JPanel();
 		paddingTop.setPreferredSize(new Dimension(900,250));
+		paddingTop.setBackground(Color.WHITE);
+
 		JPanel logiBtnContainer = new JPanel();
 		logiBtnContainer.setPreferredSize(new Dimension(900,50));
+		logiBtnContainer.setBackground(Color.WHITE);
 
 		TextInput userNameInput = new TextInput("Enter your user name...");
 		userNameInput.setHorizontalAlignment(TextInput.CENTER);
